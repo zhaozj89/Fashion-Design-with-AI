@@ -8,4 +8,4 @@ MacOS
 
 #### Note
 
-pix2pix, segmentation, and data can be found in google drive
+models of pix2pix and segmentation, data can be found in google drive
