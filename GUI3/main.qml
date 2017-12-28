@@ -28,8 +28,25 @@ Item {
             }
 
             // this rectangle is only used for providing a frame
+//            Rectangle {
+//                id: frame
+//                border.color: "gray"
+//                border.width: 2
+
+//                Layout.fillHeight: true
+//                Layout.fillWidth: true
+//                Layout.leftMargin: 10
+//                Layout.rightMargin: 10
+//                Layout.topMargin: 10
+//                Layout.bottomMargin: 10
+//            }
+
+            // main window, show image and strokes
             Rectangle {
-                id: frame
+                id: photo
+//                anchors.fill: parent
+//                anchors.margins: 5
+
                 border.color: "gray"
                 border.width: 2
 
@@ -39,13 +56,8 @@ Item {
                 Layout.rightMargin: 10
                 Layout.topMargin: 10
                 Layout.bottomMargin: 10
-            }
 
-            // main window, show image and strokes
-            Rectangle {
-                id: photo
-                anchors.fill: frame
-                anchors.margins: 5
+
                 state: "default"
                 states: [
                     State {

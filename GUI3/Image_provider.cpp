@@ -45,6 +45,7 @@ void ImageReader::setSource(const QString& source)
 	fileName.erase(0, 7);
 
 	m_mat = cv::imread(fileName, CV_LOAD_IMAGE_COLOR);
+	cv::resize(m_mat, m_mat, cv::Size(0.5*m_mat.cols, 0.5*m_mat.rows));
 	m_mat.copyTo(m_mat_copy);
 
 	if(m_mat.empty())
@@ -172,7 +173,7 @@ int ImageReader::magic(QQuickItem *item)
 		QImage image = grabResult->image().copy();
 		cv::Mat input = QImage2Mat(image);
 
-		cv::imwrite("C:/Users/mxj/Desktop/zzj/Data/magic_input.png", input);
+		cv::imwrite("/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_input.png", input);
 
 		// start new process
 		QProcess *process = new QProcess(this);
@@ -182,7 +183,7 @@ int ImageReader::magic(QQuickItem *item)
 		process->waitForFinished();
 		process->close();
 
-		m_mat = cv::imread("C:/Users/mxj/Desktop/zzj/Data/magic_output.png", 1);
+		m_mat = cv::imread("/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_output.png", 1);
 		emit magicFinished();
 	});
 
@@ -211,8 +212,11 @@ int ImageReader::color(QQuickItem *item, QString flowerName)
 		int h = imgObj.rows;
 		cv::resize(imgObj, imgObj, cv::Size(512, 512));
 		std::string name = flowerName.toLocal8Bit().constData();
-		std::string fName = "../GUI/assets/"+name+".png";
+		std::string fName = "/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/GUI3/assets/"+name+".png";
 		cv::Mat flower = cv::imread(fName.c_str(), CV_LOAD_IMAGE_COLOR);
+
+		cout<<"hi"<<flower<<endl;
+
 		cv::resize(flower, flower, cv::Size(512, 512));
 		cv::Mat res = deNoise(imgObj, flower, 10);
 
@@ -254,17 +258,19 @@ int ImageReader::magic_color(QQuickItem *item)
 		QImage image = grabResult->image().copy();
 		cv::Mat input = QImage2Mat(image);
 
-		cv::imwrite("C:/Users/mxj/Desktop/zzj/Data/magic_input_color.png", input);
+//		cout<<"hi"<<input<<endl;
+
+		cv::imwrite("/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_input_color.png", input);
 
 		// start new process
 		QProcess *process = new QProcess(this);
-		QString program = "python";
-		QString folder = "../pix2pix2/Forward/process_color.py";
+		QString program = "/Users/zzj/Documents/All/Submissions/uist17/python3-tf/bin/python";
+		QString folder = "/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/pix2pix2/Forward/process_color.py";
 		process->start(program, QStringList() << folder);
 		process->waitForFinished();
 		process->close();
 
-		m_mat = cv::imread("C:/Users/mxj/Desktop/zzj/Data/magic_output_color.png", 1);
+		m_mat = cv::imread("/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_output_color.png", 1);
 
 		emit magic_colorFinished();
 	});
@@ -320,7 +326,7 @@ void ImageReader::save(QQuickItem *item)
 		cv::cvtColor(m_save, m_save, CV_BGRA2BGR);
 
 		char outname[100];
-		sprintf(outname, "C:/Users/mxj/Desktop/zzj/Data/final%d.png", counter);
+		sprintf(outname, "/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/result/final%d.png", counter);
 		cv::imwrite(outname, m_save);
 		counter++;
 	});

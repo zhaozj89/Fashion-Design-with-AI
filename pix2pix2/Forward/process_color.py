@@ -24,7 +24,7 @@ def forward(input_image):
     output_np = cv2.resize(output_np, (h, w))
     return output_np
 
-im = cv2.imread('/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/sketch.png', 1)
+im = cv2.imread('/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_input_color.png', 1)
 res = forward(im)
 res = cv2.cvtColor(res,cv2.COLOR_BGR2RGB)
-cv2.imwrite('/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/res.png', res*255)
+cv2.imwrite('/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_output_color.png', res*255)

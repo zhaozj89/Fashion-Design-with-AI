@@ -5,7 +5,7 @@ import argparse
 import json
 
 def forward(input_image):
-    model_dir = "C:/Users/mxj/Desktop/zzj/Model/qipao_model"
+    model_dir = "/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Model/qipao_model"
 
     w, h, c = input_image.shape
     input_image = cv2.resize(input_image, (256, 256))
@@ -24,6 +24,6 @@ def forward(input_image):
     output_np = cv2.resize(output_np, (h, w))
     return output_np
 
-im = cv2.imread('C:/Users/mxj/Desktop/zzj/Data/magic_input.png', 1)
+im = cv2.imread('/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_input.png', 1)
 res = forward(im)
-cv2.imwrite('C:/Users/mxj/Desktop/zzj/Data/magic_output.png', res*255)
+cv2.imwrite('/Users/zzj/Documents/All/Submissions/uist17/UIST17 Program/Data/cache/magic_output.png', res*255)

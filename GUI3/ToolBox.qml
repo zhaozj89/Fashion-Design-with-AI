@@ -158,7 +158,7 @@ Rectangle {
             Text {
                 width: 50
                 anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: 22
+                font.pixelSize: 10
                 text: strokeWidth.value
             }
         }
