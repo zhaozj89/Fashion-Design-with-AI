@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ToolBox.qml</file>
+        <file>OptionMenu.qml</file>
+        <file>ScribbleArea.qml</file>
+        <file>CustomButton.qml</file>
+        <file>RoundMouseArea.qml</file>
+        <file>CustomButton2.qml</file>
+        <file>assets/open.png</file>
+        <file>assets/save.png</file>
+        <file>assets/camera.png</file>
+        <file>assets/pencil.png</file>
+        <file>assets/magic-wand.png</file>
+		<file>assets/magic-wand-color.png</file>
+        <file>assets/paint-palette.png</file>
+        <file>assets/eraser.png</file>
+        <file>assets/lasso.png</file>
+        <file>assets/spinner.png</file>
+        <file>assets/edge.png</file>
+        <file>assets/color.png</file>
+        <file>assets/daisy.png</file>
+        <file>assets/hydrangea.png</file>
+        <file>assets/pansy.png</file>
+        <file>assets/pear.png</file>
+        <file>assets/rose.png</file>
+        <file>assets/sunflower.png</file>
+		<file>assets/blank.png</file>
+		<file>assets/tryon.png</file>
+    </qresource>
+</RCC>

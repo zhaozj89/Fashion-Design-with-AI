@@ -1,0 +1,7 @@
+*.pyc
+tags
+test
+models
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfvars
