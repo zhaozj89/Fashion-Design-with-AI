@@ -1,11 +1,5 @@
-#### Instant-Qipao
+Design with Machine Leanring
+========
 
-Generative design for qipao/fashion
-
-#### Testing
-
-MacOS
-
-#### Note
-
-models of pix2pix and segmentation, data can be found in google drive
+------------------
+GNU LESSER GENERAL PUBLIC LICENSE
