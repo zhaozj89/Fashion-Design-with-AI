@@ -1,5 +1,6 @@
-Design with Machine Leanring
+Web UI
 ========
 
-------------------
-GNU LESSER GENERAL PUBLIC LICENSE
+## How to use ##
+
+* refer to `keras.js`, get the `.bin` model
