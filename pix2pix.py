@@ -1,33 +1,35 @@
+# from https://github.com/eriklindernoren/Keras-GAN
 from __future__ import print_function, division
-import scipy
 
-from keras.datasets import mnist
-from keras_contrib.layers.normalization import InstanceNormalization
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
 from keras.layers.advanced_activations import LeakyReLU
 from keras.layers.convolutional import UpSampling2D, Conv2D
-from keras.models import Sequential, Model
+from keras_contrib.layers.normalization import InstanceNormalization
+
+from keras.models import Model
 from keras.optimizers import Adam
+
 from keras.callbacks import TensorBoard
 
 import tensorflow as tf
 
-import datetime
-import matplotlib.pyplot as plt
-import sys
-from data_loader import DataLoader
 import numpy as np
 import os
+import datetime
+import sys
+import matplotlib.pyplot as plt
+
+from data_loader import DataLoader
 
 # from https://gist.github.com/joelthchao/ef6caa586b647c3c032a4f84d52e3a11
-def write_log(callback, names, logs, batch_no):
+def write_log(callback, names, logs, batch_num):
     for name, value in zip(names, logs):
         summary = tf.Summary()
         summary_value = summary.value.add()
         summary_value.simple_value = value
         summary_value.tag = name
-        callback.writer.add_summary(summary, batch_no)
+        callback.writer.add_summary(summary, batch_num)
         callback.writer.flush()
 
 class Pix2Pix():
@@ -38,11 +40,8 @@ class Pix2Pix():
         self.channels = 3
         self.img_shape = (self.img_rows, self.img_cols, self.channels)
 
-        # Configure data loader
-        self.dataset_name = 'facades'
-        self.data_loader = DataLoader(dataset_name=self.dataset_name,
-                                      img_res=(self.img_rows, self.img_cols))
-
+        # I assumpe you will load the data wisely
+        self.data_loader = DataLoader(img_size=(self.img_rows, self.img_cols))
 
         # Calculate output shape of D (PatchGAN)
         patch = int(self.img_rows / 2**4)
@@ -57,12 +56,11 @@ class Pix2Pix():
         # Build and compile the discriminator
         self.discriminator = self.build_discriminator()
         self.discriminator.compile(loss='mse',
-            optimizer=optimizer,
-            metrics=['accuracy'])
+                                   optimizer=optimizer,
+                                   metrics=['accuracy'])
 
         #-------------------------
-        # Construct Computational
-        #   Graph of Generator
+        # Construct Computational Graph of Generator
         #-------------------------
 
         # Build the generator
@@ -76,7 +74,7 @@ class Pix2Pix():
         fake_A = self.generator(img_B)
 
         # For the combined model we will only train the generator
-        self.discriminator.trainable = False
+        # self.discriminator.trainable = False
 
         # Discriminators determines validity of translated images / condition pairs
         valid = self.discriminator([fake_A, img_B])
@@ -88,7 +86,6 @@ class Pix2Pix():
 
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
         self.tb_callback.set_model(self.combined)
-
 
     def build_generator(self):
         """U-Net Generator"""
@@ -230,7 +227,6 @@ class Pix2Pix():
                 cnt += 1
         fig.savefig("images/%s/%d_%d.png" % (self.dataset_name, epoch, batch_i))
         plt.close()
-
 
 if __name__ == '__main__':
     gan = Pix2Pix()
