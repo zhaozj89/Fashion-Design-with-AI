@@ -1,0 +1,15 @@
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/CMakeFiles/rebuild_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/CMakeFiles/edit_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/src/CMakeFiles/rebuild_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/src/CMakeFiles/edit_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/src/CMakeFiles/optimization.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/src/CMakeFiles/densecrf.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/examples/CMakeFiles/edit_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/examples/CMakeFiles/test_pairwise.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/examples/CMakeFiles/rebuild_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/examples/CMakeFiles/test_optimization.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/examples/CMakeFiles/test_permutohedral.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/examples/CMakeFiles/dense_inference.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/external/CMakeFiles/rebuild_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/external/CMakeFiles/edit_cache.dir
+/Users/zzj/Documents/AR/design-with-ml/fashion-cut/dependency/densecrf/build/external/CMakeFiles/lbfgs.dir
