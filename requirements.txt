@@ -6,7 +6,6 @@ grpcio==1.14.1
 h5py==2.8.0
 Keras==2.1.6
 Keras-Applications==1.0.4
-keras-contrib==2.0.8
 Keras-Preprocessing==1.0.2
 kiwisolver==1.0.1
 Markdown==2.6.11
@@ -20,8 +19,6 @@ pytz==2018.5
 PyYAML==3.13
 scipy==1.1.0
 six==1.11.0
-tensorboard==1.10.0
-tensorflow==1.10.0
 termcolor==1.1.0
 Theano==1.0.2
 Werkzeug==0.14.1
