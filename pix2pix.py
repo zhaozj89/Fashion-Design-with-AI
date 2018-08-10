@@ -79,7 +79,8 @@ class Pix2Pix():
         #-------------------------
 
         # Build the generator
-        self.generator = self.build_generator()
+        self.generator_stage1 = self.build_generator()
+        self.generator_stage2 = self.build_generator()
 
         # Input images and their conditioning images
         img_A = Input(shape=self.img_shape)
@@ -87,10 +88,9 @@ class Pix2Pix():
         img_C = Input(shape=self.img_shape)
 
         # By conditioning on X generate a fake version of X
-        fake_C = self.generator([img_A, img_B]) # sketch
-        # fake_B = self.generator(img_B) # pose
-
-        # fake_C = WeigthedAdd()([fake_A, fake_B])
+        coarse_A = self.generator_stage1(img_B) # pose
+        combined_A = keras.layers.Add()([coarse_A, img_A])
+        fake_C = self.generator_stage2(combined_A) # sketch
 
         # For the combined model we will only train the generator
         self.discriminator.trainable = False
@@ -137,18 +137,6 @@ class Pix2Pix():
         d6 = conv2d(d5, self.gf*8)
         d7 = conv2d(d6, self.gf*8)
 
-        # pose
-        p0 = Input(shape=self.img_shape)
-        p1 = conv2d(p0, self.gf, bn=False)
-        p2 = conv2d(p1, self.gf*2)
-        p3 = conv2d(p2, self.gf*4)
-        p4 = conv2d(p3, self.gf*8)
-        p5 = conv2d(p4, self.gf*8)
-        p6 = conv2d(p5, self.gf*8)
-        p7 = conv2d(p6, self.gf*8)
-
-        d7 = keras.layers.Add()([d7, p7])
-
         # Upsampling
         u1 = deconv2d(d7, d6, self.gf*8)
         u2 = deconv2d(u1, d5, self.gf*8)
@@ -160,7 +148,7 @@ class Pix2Pix():
         u7 = UpSampling2D(size=2)(u6)
         output_img = Conv2D(self.channels, kernel_size=4, strides=1, padding='same', activation='tanh')(u7)
 
-        return Model([d0, p0], output_img)
+        return Model(d0, output_img)
 
     def build_discriminator(self):
 
@@ -202,7 +190,9 @@ class Pix2Pix():
                 # ---------------------
 
                 # Condition on A, B and generate translated versions
-                fake_C = self.generator.predict([imgs_A, imgs_B])
+                coarse_A = self.generator_stage2.predict(imgs_B)
+                combined_A = coarse_A + imgs_A
+                fake_C = self.generator_stage2.predict(combined_A)
                 # fake_B = self.generator.predict(imgs_B)
                 # fake_C = 0.4*fake_A + 0.6*fake_B
 
@@ -228,14 +218,17 @@ class Pix2Pix():
                 if batch_i % sample_interval == 0:
                     self.sample_images(epoch, batch_i)
 
-            self.generator.save('./saved_model/epoch-{}.h5'.format(epoch))
+            self.generator_stage1.save('./saved_model/stage1-epoch-{}.h5'.format(epoch))
+            self.generator_stage2.save('./saved_model/stage2-epoch-{}.h5'.format(epoch))
 
     def sample_images(self, epoch, batch_i):
         os.makedirs('images', exist_ok=True)
         r, c = 3, 3
 
         imgs_A, imgs_B, imgs_C = self.data_loader.load_data(batch_size=3, is_testing=False)
-        fake_C = self.generator.predict([imgs_A, imgs_B])
+        coarse_A = self.generator_stage2.predict(imgs_B)
+        combined_A = coarse_A + imgs_A
+        fake_C = self.generator_stage2.predict(combined_A)
         # fake_B = self.generator.predict(imgs_B)
         # fake_C = 0.4*fake_A + 0.6*fake_B
 
@@ -258,4 +251,4 @@ class Pix2Pix():
 
 if __name__ == '__main__':
     gan = Pix2Pix()
-    gan.train(epochs=400, batch_size=10, sample_interval=20)
+    gan.train(epochs=400, batch_size=3, sample_interval=20)
