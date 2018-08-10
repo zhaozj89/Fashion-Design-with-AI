@@ -25,7 +25,6 @@ config = tf.ConfigProto(intra_op_parallelism_threads=num_cores,\
 session = tf.Session(config=config)
 K.set_session(session)
 
-import keras
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
 from keras.layers.advanced_activations import LeakyReLU
@@ -137,7 +136,16 @@ class Pix2Pix():
 
         # Input images and their conditioning images
         img_A = Input(shape=self.img_shape)
+<<<<<<< HEAD
         img_B = Input(shape=self.img_shape)
+=======
+        # img_B = Input(shape=self.img_shape)
+        img_C = Input(shape=self.img_shape)
+
+        # By conditioning on X generate a fake version of X
+        fake_C = self.generator(img_A) # sketch
+        # fake_B = self.generator(img_B) # pose
+>>>>>>> parent of 5685d47... Update
 
         # By conditioning on B generate a fake version of A
         fake_A = self.generator(img_B)
@@ -148,11 +156,16 @@ class Pix2Pix():
         # Discriminators determines validity of translated images / condition pairs
         valid = self.discriminator([fake_A, img_B])
 
+<<<<<<< HEAD
         self.combined = Model(inputs=[img_A, img_B], outputs=[valid, fake_A])
         self.combined.compile(loss=['mse', 'mae'],
                               loss_weights=[1, 100],
                               optimizer=optimizer)
 >>>>>>> parent of 409cb5e... revise pix2pix
+=======
+        self.combined = Model(inputs=[img_A, img_C], outputs=[valid, fake_C])
+        self.combined.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
+>>>>>>> parent of 5685d47... Update
 
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
         self.tb_callback.set_model(self.combined_stage2)
@@ -242,6 +255,7 @@ class Pix2Pix():
                 # ---------------------
                 #  Train Discriminator
                 # ---------------------
+<<<<<<< HEAD
                 fake_A = self.generator_stage2.predict(imgs_B)
                 sketch_A = 0*fake_A + 1*imgs_A
                 fake_C = self.generator_stage2.predict(sketch_A)
@@ -258,6 +272,13 @@ class Pix2Pix():
 =======
                 # Condition on B and generate a translated version
                 fake_A = self.generator.predict(imgs_B)
+=======
+
+                # Condition on A, B and generate translated versions
+                fake_C = self.generator.predict(imgs_A)
+                # fake_B = self.generator.predict(imgs_B)
+                # fake_C = 0.4*fake_A + 0.6*fake_B
+>>>>>>> parent of 5685d47... Update
 
                 # Train the discriminators (original images = real / generated = Fake)
                 d_loss_real = self.discriminator.train_on_batch([imgs_A, imgs_B], valid)
@@ -276,7 +297,11 @@ class Pix2Pix():
                           g_loss_stage2, batch_i)
 =======
                 # Train the generators
+<<<<<<< HEAD
                 g_loss = self.combined.train_on_batch([imgs_A, imgs_B], [valid, imgs_A])
+=======
+                g_loss = self.combined.train_on_batch([imgs_A, imgs_C], [valid, imgs_C])
+>>>>>>> parent of 5685d47... Update
 
                 write_log(self.tb_callback, ['train_loss', 'train_mae'], g_loss, batch_i)
 >>>>>>> parent of 409cb5e... revise pix2pix
@@ -302,6 +327,7 @@ class Pix2Pix():
 
 <<<<<<< HEAD
         imgs_A, imgs_B, imgs_C = self.data_loader.load_data(batch_size=3, is_testing=False)
+<<<<<<< HEAD
         fake_A = self.generator_stage2.predict(imgs_B)
         sketch_A = 0 * fake_A + 1 * imgs_A
         fake_C = self.generator_stage2.predict(sketch_A)
@@ -309,6 +335,11 @@ class Pix2Pix():
         imgs_A, imgs_B = self.data_loader.load_data(batch_size=3, is_testing=True)
         fake_A = self.generator.predict(imgs_B)
 >>>>>>> parent of 409cb5e... revise pix2pix
+=======
+        fake_C = self.generator.predict(imgs_A)
+        # fake_B = self.generator.predict(imgs_B)
+        # fake_C = 0.4*fake_A + 0.6*fake_B
+>>>>>>> parent of 5685d47... Update
 
         gen_imgs = np.concatenate([imgs_B, fake_A, imgs_A])
 
