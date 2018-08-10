@@ -25,6 +25,7 @@ config = tf.ConfigProto(intra_op_parallelism_threads=num_cores,\
 session = tf.Session(config=config)
 K.set_session(session)
 
+import keras
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
 from keras.layers.advanced_activations import LeakyReLU
@@ -82,11 +83,11 @@ class Pix2Pix():
 
         # Input images and their conditioning images
         img_A = Input(shape=self.img_shape)
-        # img_B = Input(shape=self.img_shape)
+        img_B = Input(shape=self.img_shape)
         img_C = Input(shape=self.img_shape)
 
         # By conditioning on X generate a fake version of X
-        fake_C = self.generator(img_A) # sketch
+        fake_C = self.generator([img_A, img_B]) # sketch
         # fake_B = self.generator(img_B) # pose
 
         # fake_C = WeigthedAdd()([fake_A, fake_B])
@@ -97,7 +98,7 @@ class Pix2Pix():
         # Discriminators determines validity of translated images / condition pairs
         valid = self.discriminator([fake_C, img_A])
 
-        self.combined = Model(inputs=[img_A, img_C], outputs=[valid, fake_C])
+        self.combined = Model(inputs=[img_A, img_B, img_C], outputs=[valid, fake_C])
         self.combined.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
 
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
@@ -136,6 +137,18 @@ class Pix2Pix():
         d6 = conv2d(d5, self.gf*8)
         d7 = conv2d(d6, self.gf*8)
 
+        # pose
+        p0 = Input(shape=self.img_shape)
+        p1 = conv2d(p0, self.gf, bn=False)
+        p2 = conv2d(p1, self.gf*2)
+        p3 = conv2d(p2, self.gf*4)
+        p4 = conv2d(p3, self.gf*8)
+        p5 = conv2d(p4, self.gf*8)
+        p6 = conv2d(p5, self.gf*8)
+        p7 = conv2d(p6, self.gf*8)
+
+        d7 = keras.layers.Add()([d7, p7])
+
         # Upsampling
         u1 = deconv2d(d7, d6, self.gf*8)
         u2 = deconv2d(u1, d5, self.gf*8)
@@ -147,7 +160,7 @@ class Pix2Pix():
         u7 = UpSampling2D(size=2)(u6)
         output_img = Conv2D(self.channels, kernel_size=4, strides=1, padding='same', activation='tanh')(u7)
 
-        return Model(d0, output_img)
+        return Model([d0, p0], output_img)
 
     def build_discriminator(self):
 
@@ -189,7 +202,7 @@ class Pix2Pix():
                 # ---------------------
 
                 # Condition on A, B and generate translated versions
-                fake_C = self.generator.predict(imgs_A)
+                fake_C = self.generator.predict([imgs_A, imgs_B])
                 # fake_B = self.generator.predict(imgs_B)
                 # fake_C = 0.4*fake_A + 0.6*fake_B
 
@@ -203,7 +216,7 @@ class Pix2Pix():
                 # -----------------
 
                 # Train the generators
-                g_loss = self.combined.train_on_batch([imgs_A, imgs_C], [valid, imgs_C])
+                g_loss = self.combined.train_on_batch([imgs_A, imgs_B, imgs_C], [valid, imgs_C])
 
                 write_log(self.tb_callback, self.combined.metrics_names+self.discriminator.metrics_names, g_loss+list(d_loss), batch_i)
 
@@ -222,7 +235,7 @@ class Pix2Pix():
         r, c = 3, 3
 
         imgs_A, imgs_B, imgs_C = self.data_loader.load_data(batch_size=3, is_testing=False)
-        fake_C = self.generator.predict(imgs_A)
+        fake_C = self.generator.predict([imgs_A, imgs_B])
         # fake_B = self.generator.predict(imgs_B)
         # fake_C = 0.4*fake_A + 0.6*fake_B
 
