@@ -45,7 +45,7 @@ import matplotlib.pyplot as plt
 
 # custom codes
 from data_loader import DataLoader
-from layer import WeigthedAdd
+from layer import *
 from utils import *
 from loss import *
 
@@ -70,39 +70,47 @@ class Pix2Pix():
 
         optimizer = Adam(0.0002, 0.5)
 
-        # Build and compile the discriminator
-        self.discriminator = self.build_discriminator()
-        self.discriminator.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
+        # Input images and their conditioning images
+        img_A = Input(shape=self.img_shape) # sketch
+        img_B = Input(shape=self.img_shape) # pose
+        img_C = Input(shape=self.img_shape) # image
+
+        #-------------------------
+        # Construct Computational Graph of Discriminator
+        #-------------------------
+        # self.discriminator_stage1 = self.build_discriminator()
+        # self.discriminator_stage1.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
+
+        self.discriminator_stage2 = self.build_discriminator()
+        self.discriminator_stage2.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
 
         #-------------------------
         # Construct Computational Graph of Generator
         #-------------------------
-
-        # Build the generator
         self.generator_stage1 = self.build_generator()
         self.generator_stage2 = self.build_generator()
 
-        # Input images and their conditioning images
-        img_A = Input(shape=self.img_shape)
-        img_B = Input(shape=self.img_shape)
-        img_C = Input(shape=self.img_shape)
-
-        # By conditioning on X generate a fake version of X
-        coarse_A = self.generator_stage1(img_B) # pose
-        combined_A = keras.layers.Add()([coarse_A, img_A])
-        fake_C = self.generator_stage2(combined_A) # sketch
+        fake_A = self.generator_stage1(img_B)
+        # sketch_A = keras.layers.Add()([fake_A, img_A])
+        sketch_A = MyMerge()([fake_A, img_A])
+        fake_C = self.generator_stage2(sketch_A)
 
         # For the combined model we will only train the generator
-        self.discriminator.trainable = False
+        # self.discriminator_stage1.trainable = False
+        self.discriminator_stage2.trainable = False
 
         # Discriminators determines validity of translated images / condition pairs
-        valid = self.discriminator([fake_C, img_A])
+        # valid_stage1 = self.discriminator_stage1([fake_A, img_B])
+        valid_stage2 = self.discriminator_stage2([fake_C, sketch_A])
 
-        self.combined = Model(inputs=[img_A, img_B, img_C], outputs=[valid, fake_C])
-        self.combined.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
+        # self.combined_stage1 = Model(inputs=[img_A, img_B], outputs=[valid_stage1, fake_A])
+        # self.combined_stage1.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
+
+        self.combined_stage2 = Model(inputs=[img_A, img_B, img_C], outputs=[valid_stage2, fake_C])
+        self.combined_stage2.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
 
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
-        self.tb_callback.set_model(self.combined)
+        self.tb_callback.set_model(self.combined_stage2)
 
     def build_generator(self):
         """U-Net Generator"""
@@ -188,27 +196,27 @@ class Pix2Pix():
                 # ---------------------
                 #  Train Discriminator
                 # ---------------------
+                fake_A = self.generator_stage2.predict(imgs_B)
+                sketch_A = 0*fake_A + 1*imgs_A
+                fake_C = self.generator_stage2.predict(sketch_A)
 
-                # Condition on A, B and generate translated versions
-                coarse_A = self.generator_stage2.predict(imgs_B)
-                combined_A = coarse_A + imgs_A
-                fake_C = self.generator_stage2.predict(combined_A)
-                # fake_B = self.generator.predict(imgs_B)
-                # fake_C = 0.4*fake_A + 0.6*fake_B
+                # Train the discriminators (original images = Real / generated = Fake)
+                # d_loss_real_stage1 = self.discriminator_stage1.train_on_batch([imgs_A, imgs_B], valid)
+                # d_loss_fake_stage1 = self.discriminator_stage1.train_on_batch([fake_A, imgs_B], fake)
+                # d_loss_stage1 = 0.5 * np.add(d_loss_real_stage1, d_loss_fake_stage1)
 
-                # Train the discriminators (original images = real / generated = Fake)
-                d_loss_real = self.discriminator.train_on_batch([imgs_C, imgs_A], valid)
-                d_loss_fake = self.discriminator.train_on_batch([fake_C, imgs_A], fake)
-                d_loss = 0.5 * np.add(d_loss_real, d_loss_fake)
+                d_loss_real_stage2 = self.discriminator_stage2.train_on_batch([imgs_C, sketch_A], valid)
+                d_loss_fake_stage2 = self.discriminator_stage2.train_on_batch([fake_C, sketch_A], fake)
+                d_loss_stage2 = 0.5 * np.add(d_loss_real_stage2, d_loss_fake_stage2)
 
                 # -----------------
                 #  Train Generator
                 # -----------------
+                # g_loss_stage1 = self.combined_stage1.train_on_batch([imgs_A, imgs_B], [valid, imgs_A])
+                g_loss_stage2 = self.combined_stage2.train_on_batch([imgs_A, imgs_B, imgs_C], [valid, imgs_C])
 
-                # Train the generators
-                g_loss = self.combined.train_on_batch([imgs_A, imgs_B, imgs_C], [valid, imgs_C])
-
-                write_log(self.tb_callback, self.combined.metrics_names+self.discriminator.metrics_names, g_loss+list(d_loss), batch_i)
+                write_log(self.tb_callback,self.combined_stage2.metrics_names,
+                          g_loss_stage2, batch_i)
 
                 elapsed_time = datetime.datetime.now() - start_time
                 # Plot the progress
@@ -226,11 +234,9 @@ class Pix2Pix():
         r, c = 3, 3
 
         imgs_A, imgs_B, imgs_C = self.data_loader.load_data(batch_size=3, is_testing=False)
-        coarse_A = self.generator_stage2.predict(imgs_B)
-        combined_A = coarse_A + imgs_A
-        fake_C = self.generator_stage2.predict(combined_A)
-        # fake_B = self.generator.predict(imgs_B)
-        # fake_C = 0.4*fake_A + 0.6*fake_B
+        fake_A = self.generator_stage2.predict(imgs_B)
+        sketch_A = 0 * fake_A + 1 * imgs_A
+        fake_C = self.generator_stage2.predict(sketch_A)
 
         gen_imgs = np.concatenate([imgs_A, fake_C, imgs_C])
 
@@ -251,4 +257,4 @@ class Pix2Pix():
 
 if __name__ == '__main__':
     gan = Pix2Pix()
-    gan.train(epochs=400, batch_size=3, sample_interval=20)
+    gan.train(epochs=400, batch_size=10, sample_interval=20)
