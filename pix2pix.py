@@ -37,17 +37,31 @@ from keras.optimizers import Adam
 
 from keras.callbacks import TensorBoard
 
+import tensorflow as tf
+
 import numpy as np
 import os
 import datetime
 import sys
 import matplotlib.pyplot as plt
 
-# custom codes
 from data_loader import DataLoader
+<<<<<<< HEAD
 from layer import *
 from utils import *
 from loss import *
+=======
+
+# from https://gist.github.com/joelthchao/ef6caa586b647c3c032a4f84d52e3a11
+def write_log(callback, names, logs, batch_num):
+    for name, value in zip(names, logs):
+        summary = tf.Summary()
+        summary_value = summary.value.add()
+        summary_value.simple_value = value
+        summary_value.tag = name
+        callback.writer.add_summary(summary, batch_num)
+        callback.writer.flush()
+>>>>>>> parent of 409cb5e... revise pix2pix
 
 class Pix2Pix():
     def __init__(self):
@@ -70,10 +84,18 @@ class Pix2Pix():
 
         optimizer = Adam(0.0002, 0.5)
 
+<<<<<<< HEAD
         # Input images and their conditioning images
         img_A = Input(shape=self.img_shape) # sketch
         img_B = Input(shape=self.img_shape) # pose
         img_C = Input(shape=self.img_shape) # image
+=======
+        # Build and compile the discriminator
+        self.discriminator = self.build_discriminator()
+        self.discriminator.compile(loss='mse',
+                                   optimizer=optimizer,
+                                   metrics=['accuracy'])
+>>>>>>> parent of 409cb5e... revise pix2pix
 
         #-------------------------
         # Construct Computational Graph of Discriminator
@@ -81,6 +103,7 @@ class Pix2Pix():
         # self.discriminator_stage1 = self.build_discriminator()
         # self.discriminator_stage1.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
 
+<<<<<<< HEAD
         self.discriminator_stage2 = self.build_discriminator()
         self.discriminator_stage2.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
 
@@ -108,6 +131,28 @@ class Pix2Pix():
 
         self.combined_stage2 = Model(inputs=[img_A, img_B, img_C], outputs=[valid_stage2, fake_C])
         self.combined_stage2.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
+=======
+        # Build the generator
+        self.generator = self.build_generator()
+
+        # Input images and their conditioning images
+        img_A = Input(shape=self.img_shape)
+        img_B = Input(shape=self.img_shape)
+
+        # By conditioning on B generate a fake version of A
+        fake_A = self.generator(img_B)
+
+        # For the combined model we will only train the generator
+        # self.discriminator.trainable = False
+
+        # Discriminators determines validity of translated images / condition pairs
+        valid = self.discriminator([fake_A, img_B])
+
+        self.combined = Model(inputs=[img_A, img_B], outputs=[valid, fake_A])
+        self.combined.compile(loss=['mse', 'mae'],
+                              loss_weights=[1, 100],
+                              optimizer=optimizer)
+>>>>>>> parent of 409cb5e... revise pix2pix
 
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
         self.tb_callback.set_model(self.combined_stage2)
@@ -192,7 +237,8 @@ class Pix2Pix():
         fake = np.zeros((batch_size,) + self.disc_patch)
 
         for epoch in range(epochs):
-            for batch_i, (imgs_A, imgs_B, imgs_C) in enumerate(self.data_loader.load_batch(batch_size)):
+            for batch_i, (imgs_A, imgs_B) in enumerate(self.data_loader.load_batch(batch_size)):
+
                 # ---------------------
                 #  Train Discriminator
                 # ---------------------
@@ -200,6 +246,7 @@ class Pix2Pix():
                 sketch_A = 0*fake_A + 1*imgs_A
                 fake_C = self.generator_stage2.predict(sketch_A)
 
+<<<<<<< HEAD
                 # Train the discriminators (original images = Real / generated = Fake)
                 # d_loss_real_stage1 = self.discriminator_stage1.train_on_batch([imgs_A, imgs_B], valid)
                 # d_loss_fake_stage1 = self.discriminator_stage1.train_on_batch([fake_A, imgs_B], fake)
@@ -208,6 +255,15 @@ class Pix2Pix():
                 d_loss_real_stage2 = self.discriminator_stage2.train_on_batch([imgs_C, sketch_A], valid)
                 d_loss_fake_stage2 = self.discriminator_stage2.train_on_batch([fake_C, sketch_A], fake)
                 d_loss_stage2 = 0.5 * np.add(d_loss_real_stage2, d_loss_fake_stage2)
+=======
+                # Condition on B and generate a translated version
+                fake_A = self.generator.predict(imgs_B)
+
+                # Train the discriminators (original images = real / generated = Fake)
+                d_loss_real = self.discriminator.train_on_batch([imgs_A, imgs_B], valid)
+                d_loss_fake = self.discriminator.train_on_batch([fake_A, imgs_B], fake)
+                d_loss = 0.5 * np.add(d_loss_real, d_loss_fake)
+>>>>>>> parent of 409cb5e... revise pix2pix
 
                 # -----------------
                 #  Train Generator
@@ -215,12 +271,23 @@ class Pix2Pix():
                 # g_loss_stage1 = self.combined_stage1.train_on_batch([imgs_A, imgs_B], [valid, imgs_A])
                 g_loss_stage2 = self.combined_stage2.train_on_batch([imgs_A, imgs_B, imgs_C], [valid, imgs_C])
 
+<<<<<<< HEAD
                 write_log(self.tb_callback,self.combined_stage2.metrics_names,
                           g_loss_stage2, batch_i)
+=======
+                # Train the generators
+                g_loss = self.combined.train_on_batch([imgs_A, imgs_B], [valid, imgs_A])
+
+                write_log(self.tb_callback, ['train_loss', 'train_mae'], g_loss, batch_i)
+>>>>>>> parent of 409cb5e... revise pix2pix
 
                 elapsed_time = datetime.datetime.now() - start_time
                 # Plot the progress
-                print ("[Epoch %d/%d] [Batch %d/%d] time: %s" % (epoch, epochs, batch_i, self.data_loader.n_batches, elapsed_time))
+                print ("[Epoch %d/%d] [Batch %d/%d] [D loss: %f, acc: %3d%%] [G loss: %f] time: %s" % (epoch, epochs,
+                                                                        batch_i, self.data_loader.n_batches,
+                                                                        d_loss[0], 100*d_loss[1],
+                                                                        g_loss[0],
+                                                                        elapsed_time))
 
                 # If at save interval => save generated image samples
                 if batch_i % sample_interval == 0:
@@ -230,15 +297,20 @@ class Pix2Pix():
             self.generator_stage2.save('./saved_model/stage2-epoch-{}.h5'.format(epoch))
 
     def sample_images(self, epoch, batch_i):
-        os.makedirs('images', exist_ok=True)
+        os.makedirs('images/%s' % self.dataset_name, exist_ok=True)
         r, c = 3, 3
 
+<<<<<<< HEAD
         imgs_A, imgs_B, imgs_C = self.data_loader.load_data(batch_size=3, is_testing=False)
         fake_A = self.generator_stage2.predict(imgs_B)
         sketch_A = 0 * fake_A + 1 * imgs_A
         fake_C = self.generator_stage2.predict(sketch_A)
+=======
+        imgs_A, imgs_B = self.data_loader.load_data(batch_size=3, is_testing=True)
+        fake_A = self.generator.predict(imgs_B)
+>>>>>>> parent of 409cb5e... revise pix2pix
 
-        gen_imgs = np.concatenate([imgs_A, fake_C, imgs_C])
+        gen_imgs = np.concatenate([imgs_B, fake_A, imgs_A])
 
         # Rescale images 0 - 1
         gen_imgs = 0.5 * gen_imgs + 0.5
@@ -252,7 +324,7 @@ class Pix2Pix():
                 axs[i, j].set_title(titles[i])
                 axs[i,j].axis('off')
                 cnt += 1
-        fig.savefig("images/%d_%d.png" % (epoch, batch_i))
+        fig.savefig("images/%s/%d_%d.png" % (self.dataset_name, epoch, batch_i))
         plt.close()
 
 if __name__ == '__main__':
