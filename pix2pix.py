@@ -1,30 +1,6 @@
 # from https://github.com/eriklindernoren/Keras-GAN
 from __future__ import print_function, division
 
-import tensorflow as tf
-from keras import backend as K
-
-# Tensoflow configuration
-
-num_cores = 4
-GPU = True
-CPU = False
-if GPU:
-    num_GPU = 2
-    num_CPU = 1
-if CPU:
-    num_CPU = 1
-    num_GPU = 0
-
-gpu_options = tf.GPUOptions(allow_growth=True)
-# config = tf.ConfigProto(gpu_options=gpu_options)
-
-config = tf.ConfigProto(intra_op_parallelism_threads=num_cores,\
-        inter_op_parallelism_threads=num_cores, allow_soft_placement=True,\
-        device_count = {'CPU' : num_CPU, 'GPU' : num_GPU}, gpu_options=gpu_options)
-session = tf.Session(config=config)
-K.set_session(session)
-
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
 from keras.layers.advanced_activations import LeakyReLU
@@ -91,6 +67,7 @@ class Pix2Pix():
 =======
         # Build and compile the discriminator
         self.discriminator = self.build_discriminator()
+<<<<<<< HEAD
         self.discriminator.compile(loss='mse',
                                    optimizer=optimizer,
                                    metrics=['accuracy'])
@@ -106,6 +83,9 @@ class Pix2Pix():
 <<<<<<< HEAD
         self.discriminator_stage2 = self.build_discriminator()
         self.discriminator_stage2.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
+=======
+        self.discriminator.compile(loss=mean_log_error, optimizer=optimizer, metrics=['accuracy'])
+>>>>>>> parent of 818dcbc... Update
 
         #-------------------------
         # Construct Computational Graph of Generator
@@ -176,8 +156,12 @@ class Pix2Pix():
 >>>>>>> parent of 409cb5e... revise pix2pix
 =======
         self.combined = Model(inputs=[img_A, img_C], outputs=[valid, fake_C])
+<<<<<<< HEAD
         self.combined.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
 >>>>>>> parent of 5685d47... Update
+=======
+        self.combined.compile(loss=[mean_log_error, 'mae'], loss_weights=[1, 100], optimizer=optimizer)
+>>>>>>> parent of 818dcbc... Update
 
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
         self.tb_callback.set_model(self.combined_stage2)
@@ -270,8 +254,8 @@ class Pix2Pix():
         start_time = datetime.datetime.now()
 
         # Adversarial loss ground truths
-        valid = np.ones((batch_size,) + self.disc_patch)
-        fake = np.zeros((batch_size,) + self.disc_patch)
+        valid = np.zeros((batch_size,) + self.disc_patch)
+        fake = np.ones((batch_size,) + self.disc_patch)
 
         for epoch in range(epochs):
             for batch_i, (imgs_A, imgs_B) in enumerate(self.data_loader.load_batch(batch_size)):
@@ -391,4 +375,4 @@ class Pix2Pix():
 
 if __name__ == '__main__':
     gan = Pix2Pix()
-    gan.train(epochs=400, batch_size=10, sample_interval=20)
+    gan.train(epochs=2, batch_size=1, sample_interval=200)
