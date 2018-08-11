@@ -1,10 +1,7 @@
 import scipy
 from glob import glob
 import numpy as np
-import cv2
 import matplotlib.pyplot as plt
-
-threshold = 200
 
 class DataLoader():
     def __init__(self, img_size=(128, 128)):
@@ -30,11 +27,6 @@ class DataLoader():
             img_B = scipy.misc.imresize(img_B, self.img_size)
             img_C = scipy.misc.imresize(img_C, self.img_size)
 
-            # print(img_A.shape)
-            ret, img_A = cv2.threshold(img_A, threshold, 255, cv2.THRESH_BINARY)
-            # print(img_A.shape)
-            # cv2.imshow('test', img_A)
-            # cv2.waitKey(0)
 
             # If training => do random flip
             if not is_testing and np.random.random() < 0.5:
@@ -72,12 +64,6 @@ class DataLoader():
                 img_A = scipy.misc.imresize(img_A, self.img_size)
                 img_B = scipy.misc.imresize(img_B, self.img_size)
                 img_C = scipy.misc.imresize(img_C, self.img_size)
-
-                # print(img_A.shape)
-                ret, img_A = cv2.threshold(img_A, threshold, 255, cv2.THRESH_BINARY)
-                # print(img_A.shape)
-                # cv2.imshow('test', img_A)
-                # cv2.waitKey(0)
 
                 if not is_testing and np.random.random() > 0.5:
                     img_A = np.fliplr(img_A)

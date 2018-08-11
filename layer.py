@@ -1,6 +1,5 @@
 from keras import backend as K
 from keras.engine.topology import Layer
-import tensorflow as tf
 
 class _Merge(Layer):
     """Generic merge layer for elementwise merge functions.
@@ -178,8 +177,10 @@ class _Merge(Layer):
         masks = [K.expand_dims(m, 0) for m in mask if m is not None]
         return K.all(K.concatenate(masks, axis=0), axis=0, keepdims=False)
 
-
-class MyMerge(_Merge):
+class WeigthedAdd(_Merge):
     def _merge_function(self, inputs):
-        output = tf.multiply(inputs[0], 0.0) + tf.multiply(inputs[1], 1)
+        input1 = inputs[0]
+        input2 = inputs[1]
+        alpha = 0.6
+        output = (1-alpha)*input1 + alpha*input2
         return output
