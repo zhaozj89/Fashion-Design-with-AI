@@ -87,12 +87,13 @@ class Pix2Pix():
         #-------------------------
         # Construct Computational Graph of Generator
         #-------------------------
-        self.generator_stage1 = self.build_generator()
-        self.generator_stage2 = self.build_generator()
+        self.generator_stage1 = self.build_generator(self.img_shape)
+        stage2_input_shape = (self.img_rows, self.img_cols, 2*self.channels)
+        self.generator_stage2 = self.build_generator(stage2_input_shape)
 
         fake_A = self.generator_stage1(img_B)
         # sketch_A = keras.layers.Add()([fake_A, img_A])
-        sketch_A = MyMerge()([fake_A, img_A])
+        sketch_A = Concatenate()([fake_A, img_A])
         fake_C = self.generator_stage2(sketch_A)
 
         # For the combined model we will only train the generator
@@ -101,7 +102,7 @@ class Pix2Pix():
 
         # Discriminators determines validity of translated images / condition pairs
         # valid_stage1 = self.discriminator_stage1([fake_A, img_B])
-        valid_stage2 = self.discriminator_stage2([fake_C, sketch_A])
+        valid_stage2 = self.discriminator_stage2([fake_C, fake_A])
 
         # self.combined_stage1 = Model(inputs=[img_A, img_B], outputs=[valid_stage1, fake_A])
         # self.combined_stage1.compile(loss=['mse', 'mae'], loss_weights=[1, 100], optimizer=optimizer)
@@ -112,7 +113,7 @@ class Pix2Pix():
         self.tb_callback = TensorBoard(log_dir='./logs', write_graph=True, write_grads=True, write_images=True)
         self.tb_callback.set_model(self.combined_stage2)
 
-    def build_generator(self):
+    def build_generator(self, input_shape):
         """U-Net Generator"""
 
         def conv2d(layer_input, filters, f_size=4, bn=True):
@@ -134,7 +135,7 @@ class Pix2Pix():
             return u
 
         # Image input
-        d0 = Input(shape=self.img_shape)
+        d0 = Input(shape=input_shape)
 
         # Downsampling
         d1 = conv2d(d0, self.gf, bn=False)
@@ -196,8 +197,10 @@ class Pix2Pix():
                 # ---------------------
                 #  Train Discriminator
                 # ---------------------
-                fake_A = self.generator_stage2.predict(imgs_B)
-                sketch_A = 0*fake_A + 1*imgs_A
+                fake_A = self.generator_stage1.predict(imgs_B)
+                # sketch_A = 0*fake_A + 1*imgs_A
+                sketch_A = np.concatenate([fake_A, imgs_A], axis=3)
+                # print(sketch_A.shape)
                 fake_C = self.generator_stage2.predict(sketch_A)
 
                 # Train the discriminators (original images = Real / generated = Fake)
@@ -205,8 +208,8 @@ class Pix2Pix():
                 # d_loss_fake_stage1 = self.discriminator_stage1.train_on_batch([fake_A, imgs_B], fake)
                 # d_loss_stage1 = 0.5 * np.add(d_loss_real_stage1, d_loss_fake_stage1)
 
-                d_loss_real_stage2 = self.discriminator_stage2.train_on_batch([imgs_C, sketch_A], valid)
-                d_loss_fake_stage2 = self.discriminator_stage2.train_on_batch([fake_C, sketch_A], fake)
+                d_loss_real_stage2 = self.discriminator_stage2.train_on_batch([imgs_C, fake_A], valid)
+                d_loss_fake_stage2 = self.discriminator_stage2.train_on_batch([fake_C, fake_A], fake)
                 d_loss_stage2 = 0.5 * np.add(d_loss_real_stage2, d_loss_fake_stage2)
 
                 # -----------------
@@ -234,8 +237,9 @@ class Pix2Pix():
         r, c = 3, 3
 
         imgs_A, imgs_B, imgs_C = self.data_loader.load_data(batch_size=3, is_testing=False)
-        fake_A = self.generator_stage2.predict(imgs_B)
-        sketch_A = 0 * fake_A + 1 * imgs_A
+        fake_A = self.generator_stage1.predict(imgs_B)
+        # sketch_A = 0 * fake_A + 1 * imgs_A
+        sketch_A = np.concatenate([fake_A, imgs_A], axis=3)
         fake_C = self.generator_stage2.predict(sketch_A)
 
         gen_imgs = np.concatenate([imgs_A, fake_C, imgs_C])
@@ -257,4 +261,4 @@ class Pix2Pix():
 
 if __name__ == '__main__':
     gan = Pix2Pix()
-    gan.train(epochs=200, batch_size=10, sample_interval=20)
+    gan.train(epochs=161, batch_size=10, sample_interval=20)
