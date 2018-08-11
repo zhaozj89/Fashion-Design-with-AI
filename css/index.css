@@ -1,0 +1,57 @@
+body {
+	padding: 2px 0px 2px 8px;
+}
+
+.tbwidgets {
+	table-layout: fixed;
+}
+
+th,
+td {
+	padding: 2px 2px 2px 0px;
+}
+
+.icon {
+	height: 14px;
+}
+
+a {
+	text-decoration: none;
+}
+
+#divOptimizedPanel {
+	position: relative;
+	z-index: 100;
+}
+
+.disabled {
+	color: #999;
+}
+
+#btnMore {
+	font-size: x-small;
+}
+
+#divMoreCtrl {
+	background-color: rgba(255, 255, 255, 0.75);
+	position: absolute;
+}
+
+#divNotification {
+	/* background-color: rgba(192, 192, 192, 0.75); */
+	position: absolute;
+	text-align: center;
+	/* width: 100%; */
+	z-index: 99;
+	/* top: 96px; */
+	border: 3px solid rgba(0, 0, 0, 0);
+}
+
+#imgLegend {
+	width: 16px;
+	/* height: 10px; */
+}
+
+canvas {
+	cursor: crosshair;
+}
