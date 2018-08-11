@@ -2,6 +2,6 @@ __pycache__
 *.pyd
 *.pyc
 
-images
-logs
-saved_model
+images/*
+logs/*
+saved_model/*
