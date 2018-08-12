@@ -1,37 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- 3rd party -->
-    <link rel="stylesheet" href="vendor/jquery-ui.css">
-    <link rel="stylesheet" href="vendor/jquery.tagit.css">
-    <script src="vendor/jquery-1.12.4.min.js"></script>
-    <script src="vendor/jquery-ui.min.js"></script>
-    <script src="vendor/three.js"></script>
-    <script src="https://unpkg.com/keras-js"></script>
+    <link rel="stylesheet" href="vendor/jquery-ui.css" />
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <!-- <script src="https://unpkg.com/keras-js"></script> -->
+    <script src="vendor/jquery-1.12.4.js"></script>
+    <script src="vendor/jquery-ui.js"></script>
+    <script src="vendor/popper.min.js"></script>
+    <script src="vendor/bootstrap.min.js"></script>
+    <script src="vendor/plain-draggable.min.js"></script>
 
-    <!-- custom -->
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Webdemo</title>
+</head>
 
-    <title>Multi-stage Clothing Design</title>
-  </head>
-  <body>
-    <!-- <div width="100%" text-align="center"> -->
-        <!-- <button display="inline-block" id="btnRedo">Redo</button>
-        <button display="inline-block" id="btnClear">Clear memory</button> -->
-    <!-- </div> -->
-    <!-- <div> -->
-        <!-- <canvas id="view" width="800" height="600"></canvas> -->
-    <!-- </div> -->
-    <script src="js/undomanager.js"></script>
+<body>
+
+    <ul class="sidebar">
+        <!-- <li>
+          <div class="div_button" id="camera">
+              <img class="image_button" src="assets/camera.svg"/>
+          </div>
+        </li> -->
+        <li>
+          <div class="div_button" id="landmark">
+              <img class="image_button" src="assets/landmark.svg"/>
+          </div>
+        </li>
+        <li>
+          <div class="div_button" id="draw">
+              <img class="image_button" src="assets/draw.svg"/>
+          </div>
+        </li>
+        <li>
+          <div class="div_button" id="eraser">
+              <img class="image_button" src="assets/eraser.svg"/>
+          </div>
+        </li>
+        <!-- <br /> -->
+        <li>
+          <div class="div_button" id="run">
+              <img class="image_button" src="assets/run.svg"/>
+          </div>
+        </li>
+        <li>
+          <div class="div_button" id="save">
+              <img class="image_button" src="assets/save.svg"/>
+          </div>
+        </li>
+        <li>
+          <div class="div_button" id="save">
+              <p class="text_button">exit</p>
+          </div>
+        </li>
+    </ul>
+
+    <canvas id="DrawCanvas"></canvas>
+    <video id="VideoCanvas" autoplay muted="muted"></video>
+    <div id="SVGCanvas"></div>
+
     <script src="js/config.js"></script>
+    <script src="js/svg.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/camera.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/circledrawer.js"></script>
+</body>
 
-    <!-- cnn -->
-    <!-- <script src="bundle.js"></script> -->
-  </body>
 </html>
