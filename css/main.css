@@ -47,6 +47,18 @@ body {
     left: 50%;
 }
 
+#ImageCanvas {
+    /* position: fixed; */
+    opacity: 1;
+    z-index: 15;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    margin: -250px 0 0 -250px;
+    top: 50%;
+    left: 50%;
+}
+
 /* sidebar */
 
 .sidebar {

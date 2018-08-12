@@ -1,0 +1,30 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "predict.js",
+  "scripts": {
+    "build": "browserify predict.js -t babelify -o bundle-predict.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "ball-morphology": "^0.1.0",
+    "cwise": "^1.0.10",
+    "get-pixels": "^3.3.2",
+    "ndarray": "^1.0.18",
+    "ndarray-fill": "^1.0.2",
+    "ndarray-imshow": "^1.0.1",
+    "ndarray-ops": "^1.2.2",
+    "save-pixels": "^2.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

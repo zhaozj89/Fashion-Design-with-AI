@@ -1,14 +1,22 @@
 $(function(){
     ResetConfiguration();
 
-    // layers
-    setTimeout(function(){
+    async function main(){
         GLOBAL.canvas = MakeCanvas('DrawCanvas');
         GLOBAL.camera = MakeCamera('VideoCanvas');
         GLOBAL.svg = MakeClothingLandmark('SVGCanvas');
 
+
+        let landmark_image = GLOBAL.MakeLandmarkImage();
+        let stage1_image = await GLOBAL.RunStage_1_Model(landmark_image);
+        console.log(stage1_image);
+        GLOBAL.ShowImageCanvas(stage1_image);
+
         $(window).trigger('resize');
-    }, 100);
+    }
+
+    // layers
+    setTimeout(main(), 100);
 
     // handle events
     // resize

@@ -8,3 +8,6 @@ saved_model
 __pycache__
 *.pyd
 *.pyc
+
+*.h5
+*.bin

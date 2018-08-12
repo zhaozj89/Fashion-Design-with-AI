@@ -15,8 +15,6 @@ var MakeClothingLandmark = function(id){
 
     var circle_w = 10;
     var circle_h = 10;
-    // var border_w = 500;
-    // var border_h = 500;
     var center_x = GLOBAL.width/2;
     var center_y = GLOBAL.height/2;
 
@@ -27,27 +25,12 @@ var MakeClothingLandmark = function(id){
         'fill': '#99d8c9'
     };
 
-    // var border_config = {
-    //     'x': center_x - border_w/2,
-    //     'y': center_y - border_h/2,
-    //     'width': border_w,
-    //     'height': border_h,
-    //     'fill-opacity': 0.0,
-    //     'stroke': '#E6E9FF',
-    //     'stroke-width': 2,
-    //     'stroke-opacity': 0.4
-    // };
-
     var circles = [];
     for(var i=0; i<6; ++i) {
         circles.push(MakeSVG('circle', circle_config));
     }
-    // var border = MakeSVG('rect', border_config);
 
-    // $(svg).append(border);
     $('#'+id).append(svg);
-
-    // var draggable_border = new PlainDraggable(border);
 
     var draggable_circles = []
     for(var i=0; i<6; ++i) {
@@ -55,5 +38,16 @@ var MakeClothingLandmark = function(id){
         draggable_circles.push(new PlainDraggable(circles[i]));
     }
 
+    GLOBAL.landmarks = circles;
+
     return document.getElementById(id);
+}
+
+var GetCirclePosition = function(el) {
+    var x = parseInt($(el).attr('cx'));
+    var y = parseInt($(el).attr('cy'));
+    var transform = $(el).css('transform').split(',');
+    x = x + parseInt(transform[4]);
+    y = y + parseInt(transform[5]);
+    return [x, y];
 }
