@@ -1,4 +1,4 @@
-Design with Machine Leanring
+Design with AI
 ========
 
 ## Branches ##
