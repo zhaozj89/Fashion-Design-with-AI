@@ -27,7 +27,6 @@ class DataLoader():
 
             img_A = scipy.misc.imresize(img_A, self.img_size)
             img_B = scipy.misc.imresize(img_B, self.img_size)
-<<<<<<< HEAD
             img_C = scipy.misc.imresize(img_C, self.img_size)
 
             # print(img_A.shape)
@@ -35,8 +34,6 @@ class DataLoader():
             # print(img_A.shape)
             # cv2.imshow('test', img_A)
             # cv2.waitKey(0)
-=======
->>>>>>> parent of 409cb5e... revise pix2pix
 
             # If training => do random flip
             if not is_testing and np.random.random() < 0.5:
