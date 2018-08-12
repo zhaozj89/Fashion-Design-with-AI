@@ -5,43 +5,63 @@ body {
 /* video */
 
 #VideoCanvas {
-    position: fixed;
+    /* position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100%; */
     z-index: 10;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    margin: -250px 0 0 -250px;
+    top: 50%;
+    left: 50%;
 }
 
 /* canvas */
 
 #DrawCanvas {
-    position: fixed;
+    /* position: fixed; */
     background:rgb(100,100,100,0.3);
     z-index: 20;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    margin: -250px 0 0 -250px;
+    top: 50%;
+    left: 50%;
 }
 
 /* svg */
 
 #SVGCanvas {
-    position: fixed;
+    /* position: fixed; */
     background:rgb(100,100,100,0.3);
     z-index: 30;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    margin: -250px 0 0 -250px;
+    top: 50%;
+    left: 50%;
 }
 
 /* sidebar */
 
 .sidebar {
-  position: fixed;
-  left: 20%;
+  position: absolute;
+  width: 500px;
+  margin-left: -240px;
+  left: 50%;
   top: 0px;
   z-index: 100;
 
   list-style-type: none;
-  margin: 0;
+  /* margin: 0; */
   padding: 0px;
   overflow: hidden;
-  width: 100%
+
 }
 
 .sidebar li {
@@ -67,4 +87,13 @@ body {
     height: 40px;
     padding: 10px;
     vertical-align: unset;
+}
+
+.sidebar .text_button {
+    width: 40px;
+    height: 40px;
+    vertical-align: unset;
+    font-size: 20px;
+    color: black;
+    text-align: center;
 }
