@@ -15,7 +15,7 @@ class DataLoader():
         path = glob('../output/%s/*' % (data_type))
 
         # batch_images = np.random.choice(path, size=batch_size)
-        batch_images = ['../output/train/00000200.jpg', '../output/train/00001001.jpg']
+        batch_images = ['../output/train/00000200.jpg', '../output/train/00000100.jpg']
 
         imgs_A = []
         imgs_B = []

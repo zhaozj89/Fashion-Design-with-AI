@@ -14,7 +14,7 @@ my_data_loader = DataLoader(img_size=(256, 256))
 imgs_A, imgs_B, imgs_C = my_data_loader.load_data_test(batch_size=2, is_testing=False)
 
 img_A = imgs_A[1,:,:,:] #(imgs_A[0,:,:,:] + imgs_A[1,:,:,:])*0.5
-img_B = imgs_A[0,:,:,:] #(imgs_B[0,:,:,:] + imgs_B[1,:,:,:])
+img_B = imgs_A[1,:,:,:] #(imgs_B[0,:,:,:] + imgs_B[1,:,:,:])
 img_C = imgs_C[1,:,:,:]
 
 img_A = img_A[np.newaxis,...]
@@ -27,7 +27,7 @@ model2 = load_model('../results/2stage/stage2-epoch-150.h5')
 
 # step3. predict results
 fake_A = model1.predict(img_B)
-sketch = np.concatenate([img_B, img_A], axis=3)
+sketch = np.concatenate([img_A, img_A], axis=3)
 fake_C = model2.predict(sketch)
 
 result = np.concatenate([img_B, fake_A, img_A, fake_C, img_C])
@@ -45,5 +45,6 @@ fig.savefig("test.png")
 plt.close()
 
 # print(fake_C.shape)
-output = np.squeeze((fake_A * 127.5 + 127.5).astype(np.uint8))
+output = np.squeeze((fake_C * 127.5 + 127.5).astype(np.uint8))
+output = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
 cv2.imwrite('test.jpg', output)
