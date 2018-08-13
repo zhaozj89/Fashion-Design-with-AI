@@ -1,33 +1,28 @@
-$(function(){
+$(function() {
     ResetConfiguration();
 
-    async function main(){
+    // layers
+    setTimeout(async function() {
+        // await GLOBAL.Load_Models();
+        $('#indicator').text('Loading models finished');
+
         GLOBAL.canvas = MakeCanvas('DrawCanvas');
-        GLOBAL.camera = MakeCamera('VideoCanvas');
+        // GLOBAL.camera = MakeCamera('VideoCanvas');
         GLOBAL.svg = MakeClothingLandmark('SVGCanvas');
 
-
-        let landmark_image = GLOBAL.MakeLandmarkImage();
-        let stage1_image = await GLOBAL.RunStage_1_Model(landmark_image);
-        console.log(stage1_image);
-        GLOBAL.ShowImageCanvas(stage1_image);
-
         $(window).trigger('resize');
-    }
-
-    // layers
-    setTimeout(main(), 100);
+    }, 100);
 
     // handle events
     // resize
-    $(window).on('resize', function(){
+    $(window).on('resize', function() {
         ResetConfiguration();
         ResizeCanvas(GLOBAL.canvas);
     });
 
     // buttons
-    $('.div_button').click(function(){
-        $('.div_button').each(function(){
+    $('.div_button').click(async function() {
+        $('.div_button').each(function() {
             $(this).css('background-color', '#889288');
         });
         $(this).css('background-color', '#FF0000');
@@ -40,7 +35,9 @@ $(function(){
             case 'draw':
                 SwitchCanvas(GLOBAL.canvas, GLOBAL.svg, 'draw');
                 break;
-            default:
+            case 'run':
+                await GLOBAL.Infer();
+                break;
         }
     });
 });
