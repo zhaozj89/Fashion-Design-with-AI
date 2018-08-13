@@ -1,0 +1,130 @@
+body {
+    overflow: hidden;
+}
+
+/* video */
+
+/* #VideoCanvas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    margin: -250px 0 0 -250px;
+    top: 50px;
+    left: 0px;
+} */
+
+/* canvas */
+
+#DrawCanvas {
+    /* position: fixed; */
+    background:rgb(100,100,100,0.3);
+    z-index: 20;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    /* margin: -250px 0 0 -250px; */
+    top: 50px;
+    left: 0px;
+    margin: 20px;
+}
+
+#ResultCanvas {
+    /* position: fixed; */
+    background:rgb(100,100,100,0.3);
+    z-index: 18;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    /* margin: -250px 0 0 -250px; */
+    top: 50px;
+    left: 0px;
+    margin: 20px;
+}
+
+/* svg */
+
+#SVGCanvas {
+    /* position: fixed; */
+    background:rgb(100,100,100,0.3);
+    z-index: 30;
+    /* width: 100%;
+    height: 100%; */
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    /* margin: -250px 0 0 -250px; */
+    top: 50px;
+    left: 0px;
+    margin: 20px;
+}
+
+#ImageCanvas {
+    /* position: fixed; */
+    opacity: 1;
+    z-index: 15;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    /* margin: -250px 0 0 -250px; */
+    top: 50px;
+    left: 0px;
+    margin: 20px;
+}
+
+#Explanation {
+    top: 50px;
+    margin: 20px;
+    position: absolute;
+    left: 520px;
+}
+
+/* sidebar */
+
+.sidebar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 100;
+
+  list-style-type: none;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.sidebar li {
+  position: relative;
+  width: 40px;
+  line-height: 40px;
+  /* color: #A8AFA9; */
+  cursor: pointer;
+
+  float: left;
+  margin: 20px 20px 20px 20px;
+}
+
+.sidebar .div_button {
+  border-radius: 50%;
+  background-color: #889288;
+  width: 40px;
+  height: 40px;
+}
+
+.sidebar .image_button {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    vertical-align: unset;
+}
+
+.sidebar .text_button {
+    width: 40px;
+    height: 40px;
+    vertical-align: unset;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}

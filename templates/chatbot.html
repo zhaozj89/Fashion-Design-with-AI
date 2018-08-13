@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/chatbot.css" />
+
+  <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- quill -->
+  <link rel='stylesheet' href='/static/node_modules/quill/dist/quill.snow.css'>
+  <script src='/static/node_modules/quill/dist/quill.min.js'></script>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <h1 style="text-align: center;">Art Tutor</h1>
+  </div>
+
+  <div class="container" id="chatbox">
+    <p class="botText">
+      <span>
+        Hi! Let us learn to create art!
+      </span>
+    </p>
+  </div>
+
+  <div class="container">
+    <!-- this works -->
+    <!-- <form action="" method="post" enctype="multipart/form-data" class="row" id="userInput">
+      <input type="textarea" name="text" value="" class="col-sm-8" id="textInput">
+      <input type="file" name="file" class="col-sm-2" id="fileInput">
+      <input type="submit" value="Submit" class="col-sm-2" id="buttonInput">
+    </form> -->
+    <div class="row" id="userInput">
+      <div class="col-sm-11">
+        <div style="height: 120px;" id="textInput" ></div>
+      </div>
+      <div class="col-sm-1" style="top: 60px;">
+        <button type="button" class="btn btn-outline-primary" id="buttonInput">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/chatbot.js"></script>
+</body>
+
+</html>

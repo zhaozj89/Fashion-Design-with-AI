@@ -1,0 +1,11 @@
+Pillow==5.1.0
+PsiTurk==2.2.3
+psutil==5.4.6
+pyparsing==2.2.0
+requests==2.5.0
+setproctitle==1.1.8
+sh==1.9
+SQLAlchemy==0.8.3
+ua-parser==0.3.6
+user-agents==0.2.0
+Werkzeug==0.12.1
