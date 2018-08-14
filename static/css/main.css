@@ -82,6 +82,14 @@ body {
     left: 520px;
 }
 
+#Status {
+    font-size: large;
+    top: 580px;
+    margin: 10px;
+    position: absolute;
+    left: 10px;
+}
+
 /* sidebar */
 
 .sidebar {

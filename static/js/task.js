@@ -14,6 +14,8 @@ var instructionPages = [
     "instructions/instruct-ready.html"
 ];
 
+var postquestionnairePage = "postquestionnaire.html";
+
 function ImageURI2DOM(uri) {
   var image = document.createElement("img");
 
@@ -76,6 +78,10 @@ var MyExperiment = function() {
     GLOBAL.start = new Date();
 
     $(function() {
+        GLOBAL.intro = introJs();
+        GLOBAL.intro.setOption('showProgress', true);
+        GLOBAL.intro.start();
+
         // layers
         setTimeout(async function() {
             GLOBAL.canvas = MakeCanvas('DrawCanvas');
@@ -106,16 +112,25 @@ var MyExperiment = function() {
             // deal with events
             switch (this.id) {
                 case 'landmark':
-                    GLOBAL.svg = MakeClothingLandmark('SVGCanvas');
+                    $('#Status').text('Adjust landmarks');
                     SwitchCanvas(GLOBAL.canvas, GLOBAL.svg, 'svg');
                     break;
                 case 'draw':
                 case 'eraser':
+                    $('#Status').text('Sketch');
                     SwitchCanvas(GLOBAL.canvas, GLOBAL.svg, 'draw');
                     break;
+                case 'clean':
+                    $('#Status').text('Status');
+                    GLOBAL.svg = MakeClothingLandmark('SVGCanvas');
+                    CleanCanvas(GLOBAL.canvas);
+                    $('#ResultCanvas').children().remove();
+                    $(window).trigger('resize');
+                    break;
                 case 'run':
+                    $('#Status').text('Start generating a clothing image ...');
                     $.ajax({
-                      url: "/talk_to_AI",
+                      url: "/talk_to_AI_draw",
                       type: "POST",
                       data: JSON.stringify(GetNeededRecordingData()),
                       contentType: "application/json",
@@ -124,17 +139,23 @@ var MyExperiment = function() {
                           image_uri = res_data['image'];
                           if(image_uri!=='') {
                               $("#ResultCanvas").append(ImageURI2DOM(image_uri));
+                              $('#Status').text('Generating finished');
+                          }
+                          else {
+                              $('#Status').text('Generating error');
                           }
                       },
-                      error: function(){alert('error');}
+                      error: function(){$('#Status').text('Network error');}
                     });
+                    break;
+                case 'help':
+                    GLOBAL.intro.start();
                     break;
                 case 'exit':
                     psiTurk.recordUnstructuredData('all_data', GetNeededRecordingData());
-
                     psiTurk.saveData({
                       success: function() {
-                          currentview = new Questionnaire();
+                          currentview = new PostQuestionnaire();
                       },
                       error: prompt_resubmit
                     });
@@ -144,17 +165,96 @@ var MyExperiment = function() {
     });
 };
 
-var Questionnaire = function() {
-};
+var PostQuestionnaire = function() {
+  psiTurk.showPage(postquestionnairePage);
+
+  $(document).ready(function() {
+    // load your iframe with a url specific to your participant
+    $('#iframe').attr('src', 'https://ust.az1.qualtrics.com/jfe/form/SV_3UByw6DWqCghViZ?UID=' + uniqueId);
+
+    var handler = function(event) {
+      // normally there would be a security check here on event.origin (see the MDN link above), but meh.
+      if (event.data) {
+        if (typeof event.data === 'string') {
+          q_message_array = event.data.split('|');
+          if (q_message_array[0] == 'QualtricsEOS') {
+            psiTurk.recordTrialData({
+              'phase': 'postquestionnaire',
+              'status': 'back_from_qualtrics'
+            });
+            psiTurk.recordUnstructuredData('qualtrics_session_id', q_message_array[2]);
+
+            window.removeEventListener('message', handler);
+
+            psiTurk.recordTrialData({
+              'phase': 'finish_all',
+              'status': 'finish_all'
+            });
+            psiTurk.recordUnstructuredData('user_id', uniqueId);
+
+            var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
+
+            prompt_resubmit = function() {
+              document.body.innerHTML = error_message;
+              $("#resubmit").click(resubmit);
+            };
+
+            resubmit = function() {
+              document.body.innerHTML = "<h1>Trying to resubmit...</h1>";
+              reprompt = setTimeout(prompt_resubmit, 10000);
+
+              psiTurk.saveData({
+                success: function() {
+                  clearInterval(reprompt);
+                  $('#iframe').hide();
+                  var text = 'Finished, your survey code is: ' + uniqueId + '. Please fill it out at AMT website to finished the expriment. Thanks for your work.'
+                  $("#uniquecode").text(text);
+                },
+                error: prompt_resubmit
+              });
+            };
+
+            psiTurk.saveData({
+              success: function() {
+                $('#iframe').hide();
+                var text = 'Finished, your survey code is:' + uniqueId + '. Please fill it out at AMT website to finished the expriment. Thanks for your work.'
+                $("#uniquecode").text(text);
+              },
+              error: prompt_resubmit
+            });
+          }
+        }
+      }
+    }
+
+    // add the all-important message event listener
+    window.addEventListener('message', handler);
+
+    // fullscreen
+    function set_full() {
+      $('#iframe').css({
+        position: 'absolute',
+        width: $(window).width(),
+        height: $(window).height()
+      });
+    }
+
+    $(window).resize(function() {
+      set_full();
+    });
+
+    set_full();
+  });
+}
 
 var currentview;
 
 $(window).load(function() {
-    currentview = new MyExperiment();
-    // psiTurk.doInstructions(
-    //     instructionPages,
-    //     function() {
-    //         currentview = new MyExperiment();
-    //     }
-    // );
+    // currentview = new MyExperiment();
+    psiTurk.doInstructions(
+        instructionPages,
+        function() {
+            currentview = new MyExperiment();
+        }
+    );
 });

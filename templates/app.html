@@ -1,30 +1,35 @@
 <ul class="sidebar">
-    <li>
+    <li data-step='1' data-intro='Click here for ajusting clothing landmarks.'>
       <div class="div_button" id="landmark">
           <img class="image_button" src="/static/assets/landmark.svg"/>
       </div>
     </li>
-    <li>
+    <li data-step='2' data-intro='Click here for drawing clothing sketch.'>
       <div class="div_button" id="draw">
           <img class="image_button" src="/static/assets/draw.svg"/>
       </div>
     </li>
-    <li>
+    <li data-step='3' data-intro='Click here for erasing clothing sketch.'>
       <div class="div_button" id="eraser">
           <img class="image_button" src="/static/assets/eraser.svg"/>
       </div>
     </li>
-    <li>
+    <li data-step='4' data-intro='Click here for cleaning all and restart.'>
+      <div class="div_button" id="clean">
+          <img class="image_button" src="/static/assets/clean.svg"/>
+      </div>
+    </li>
+    <li data-step='5' data-intro='Click here for generating clothing designs (based on landmark positions and your sketch).'>
       <div class="div_button" id="run">
           <img class="image_button" src="/static/assets/run.svg"/>
       </div>
     </li>
-    <!-- <li>
-      <div class="div_button" id="save">
-          <img class="image_button" src="/static/assets/save.svg"/>
+    <li data-step='6' data-intro='Click here for showing the explanation again.'>
+      <div class="div_button" id="help">
+          <img class="image_button" src="/static/assets/help.svg"/>
       </div>
-    </li> -->
-    <li>
+    </li>
+    <li data-step='8' data-intro='When you finish, click here to leave (please ensure you can see a generated image).'>
       <div class="div_button" id="exit">
           <p class="text_button">exit</p>
       </div>
@@ -42,3 +47,5 @@
     <li style="color: #fdae6b">sleeve</li>
     <li style="color: #f03b20">hem</li>
 </ul>
+
+<div id="Status" data-step='8' data-intro='Here showing status of the system.'>Status</div>
