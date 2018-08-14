@@ -12162,3 +12162,1088 @@ Traceback (most recent call last):
 IOError: Unable to open file (unable to open file: name = 'stage1-epoch-150.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
 [2018-08-14 11:24:40,684] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveqtXVk'], 'workerId': [u'liveV3LHo'], 'hitId': [u'liveszknD'], 'mode': [u'live']}
 [2018-08-14 11:29:49,336] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'livekycC5'], 'workerId': [u'live8rsMF'], 'hitId': [u'live1yOKW'], 'mode': [u'live']}
+[2018-08-14 06:38:10 +0000] [23364] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 06:38:10 +0000] [23369] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 06:38:10 +0000] [23366] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 06:38:10 +0000] [23367] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 06:38:10 +0000] [23368] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 06:47:58 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23661)
+[2018-08-14 06:48:52 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23467)
+[2018-08-14 06:49:12 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23465)
+[2018-08-14 06:51:27 +0000] [23710] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 174, in handle_request
+    resp.write_file(respiter)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 397, in write_file
+    if not self.sendfile(respiter):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 387, in sendfile
+    sent += sendfile(sockno, fileno, offset + sent, count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/_sendfile.py", line 67, in sendfile
+    raise OSError(e, os.strerror(e))
+OSError: [Errno 32] Broken pipe
+[2018-08-14 06:51:31 +0000] [23784] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 174, in handle_request
+    resp.write_file(respiter)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 397, in write_file
+    if not self.sendfile(respiter):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 387, in sendfile
+    sent += sendfile(sockno, fileno, offset + sent, count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/_sendfile.py", line 67, in sendfile
+    raise OSError(e, os.strerror(e))
+OSError: [Errno 32] Broken pipe
+[2018-08-14 06:51:38 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23461)
+[2018-08-14 06:51:40 +0000] [23919] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 174, in handle_request
+    resp.write_file(respiter)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 397, in write_file
+    if not self.sendfile(respiter):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 387, in sendfile
+    sent += sendfile(sockno, fileno, offset + sent, count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/_sendfile.py", line 67, in sendfile
+    raise OSError(e, os.strerror(e))
+OSError: [Errno 32] Broken pipe
+[2018-08-14 06:51:42,631] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveteTgs'], 'workerId': [u'liveH0ObT'], 'hitId': [u'liveBPFBc'], 'mode': [u'live']}
+[2018-08-14 06:52:23 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23710)
+[2018-08-14 06:52:41,120] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveOIFUM'], 'workerId': [u'livekXeCg'], 'hitId': [u'live7kax1'], 'mode': [u'live']}
+[2018-08-14 06:53:50 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23919)
+[2018-08-14 06:55:00 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23956)
+[2018-08-14 06:55:55 +0000] [24030] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 174, in handle_request
+    resp.write_file(respiter)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 397, in write_file
+    if not self.sendfile(respiter):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 387, in sendfile
+    sent += sendfile(sockno, fileno, offset + sent, count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/_sendfile.py", line 67, in sendfile
+    raise OSError(e, os.strerror(e))
+OSError: [Errno 32] Broken pipe
+[2018-08-14 06:57:10,729] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveYhk28'], 'workerId': [u'livegPtkN'], 'hitId': [u'livemA9dN'], 'mode': [u'live']}
+[2018-08-14 06:57:38 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23989)
+[2018-08-14 06:58:30 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23784)
+[2018-08-14 07:00:15 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:24071)
+[2018-08-14 07:02:53 +0000] [23457] [CRITICAL] WORKER TIMEOUT (pid:23866)
+[2018-08-14 07:07:44 +0000] [24030] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 174, in handle_request
+    resp.write_file(respiter)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 397, in write_file
+    if not self.sendfile(respiter):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 387, in sendfile
+    sent += sendfile(sockno, fileno, offset + sent, count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/_sendfile.py", line 67, in sendfile
+    raise OSError(e, os.strerror(e))
+OSError: [Errno 32] Broken pipe
+[2018-08-14 07:10:06 +0000] [24277] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 07:10:06 +0000] [24276] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 07:10:06 +0000] [24278] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 07:10:06 +0000] [24273] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 07:10:06 +0000] [24275] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 07:10:06 +0000] [24274] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 07:47:32 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24392)
+[2018-08-14 07:51:17 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24866)
+[2018-08-14 07:53:28,647] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'live86ZrM'], 'workerId': [u'liveMQzbL'], 'hitId': [u'liveVMQug'], 'mode': [u'live']}
+[2018-08-14 07:53:43 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24395)
+[2018-08-14 07:58:12 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24393)
+[2018-08-14 08:02:46 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24899)
+[2018-08-14 08:25:32 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24389)
+[2018-08-14 08:25:32 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24692)
+[2018-08-14 08:25:32 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24981)
+[2018-08-14 08:25:49 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:24932)
+[2018-08-14 08:37:42,066] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveERxZQ'], 'workerId': [u'livenX2ld'], 'hitId': [u'livegnMjS'], 'mode': [u'live']}
+[2018-08-14 08:39:01 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25089)
+[2018-08-14 08:46:21 +0000] [25184] [ERROR] Error handling request
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 174, in handle_request
+    resp.write_file(respiter)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 397, in write_file
+    if not self.sendfile(respiter):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/wsgi.py", line 387, in sendfile
+    sent += sendfile(sockno, fileno, offset + sent, count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/_sendfile.py", line 67, in sendfile
+    raise OSError(e, os.strerror(e))
+OSError: [Errno 32] Broken pipe
+[2018-08-14 08:49:03 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25184)
+[2018-08-14 08:53:47 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25026)
+[2018-08-14 08:54:48 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25621)
+[2018-08-14 08:59:11 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25503)
+[2018-08-14 08:59:46 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25388)
+[2018-08-14 09:04:07 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25657)
+[2018-08-14 09:04:14 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25766)
+[2018-08-14 09:13:46 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25815)
+[2018-08-14 09:14:57 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25087)
+[2018-08-14 09:25:42,866] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveb9v1I'], 'workerId': [u'live5bJOR'], 'hitId': [u'live3K3tR'], 'mode': [u'live']}
+[2018-08-14 09:28:24 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25733)
+[2018-08-14 09:29:24 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25922)
+[2018-08-14 09:29:42 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:26033)
+[2018-08-14 09:30:46 +0000] [26066] [ERROR] Socket error processing request.
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 129, in handle
+    req = six.next(parser)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 153, in __init__
+    super(Request, self).__init__(cfg, unreader)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 53, in __init__
+    unused = self.parse(self.unreader)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 165, in parse
+    self.get_data(unreader, buf, stop=True)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 156, in get_data
+    data = unreader.read()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/unreader.py", line 38, in read
+    d = self.chunk()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/http/unreader.py", line 65, in chunk
+    return self.sock.recv(self.mxchunk)
+error: [Errno 4] Interrupted system call
+[2018-08-14 09:32:21,753] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'live4yLcd'], 'workerId': [u'livesrxgO'], 'hitId': [u'livehPsGn'], 'mode': [u'live']}
+[2018-08-14 09:33:16 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:25839)
+[2018-08-14 09:49:27 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:26066)
+[2018-08-14 09:52:11,524] ERROR in app: Exception on /exp [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/user_utils.py", line 20, in new_func
+    resp = make_response(func(*args, **kwargs))
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 439, in start_exp
+    db_session.commit()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 149, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 721, in commit
+    self.transaction.commit()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 354, in commit
+    self._prepare_impl()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 334, in _prepare_impl
+    self.session.flush()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1818, in flush
+    self._flush(objects)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1936, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 58, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1900, in _flush
+    flush_context.execute()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 372, in execute
+    rec.execute(self)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 525, in execute
+    uow
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 64, in save_obj
+    table, insert)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 541, in _emit_insert_statements
+    execute(statement, multiparams)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 662, in execute
+    params)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 761, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 874, in _execute_context
+    context)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1024, in _handle_dbapi_exception
+    exc_info
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 196, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 867, in _execute_context
+    context)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 324, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (IntegrityError) UNIQUE constraint failed: turkdemo.uniqueid u'INSERT INTO turkdemo (uniqueid, assignmentid, workerid, hitid, ipaddress, browser, platform, language, cond, counterbalance, codeversion, beginhit, beginexp, endhit, bonus, status, mode, datastring) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)' ('liveFQIgR:livewb4ny', u'livewb4ny', u'liveFQIgR', u'liveOiwpO', '112.24.90.95', 'webkit', 'iphone', 'UNKNOWN', 0, 0, '1.0', '2018-08-14 09:52:11.523101', None, None, 0.0, 1, u'live', None)
+[2018-08-14 10:14:14 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:26193)
+[2018-08-14 10:24:40 +0000] [24384] [CRITICAL] WORKER TIMEOUT (pid:26148)
+[2018-08-14 10:27:23 +0000] [26316] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 10:27:23 +0000] [26315] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 10:27:23 +0000] [26311] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 10:27:23 +0000] [26313] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 10:27:23 +0000] [26312] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+[2018-08-14 10:27:23 +0000] [26314] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/ubuntu/design-with-ml/custom.py", line 203, in <module>
+    from keras.models import load_model
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/home/ubuntu/py27/local/lib/python2.7/site-packages/keras/backend/__init__.py", line 88, in <module>
+    sys.stderr.write('Using TensorFlow backend.\n')
+IOError: [Errno 5] Input/output error
