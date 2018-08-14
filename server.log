@@ -12162,3 +12162,96 @@ Traceback (most recent call last):
 IOError: Unable to open file (unable to open file: name = 'stage1-epoch-150.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
 [2018-08-14 11:24:40,684] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'liveqtXVk'], 'workerId': [u'liveV3LHo'], 'hitId': [u'liveszknD'], 'mode': [u'live']}
 [2018-08-14 11:29:49,336] ERROR in experiment: already_started_exp (1008) {'assignmentId': [u'livekycC5'], 'workerId': [u'live8rsMF'], 'hitId': [u'live1yOKW'], 'mode': [u'live']}
+[2018-08-14 16:31:44 +0800] [15030] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/psiturk/experiment.py", line 89, in <module>
+    init_db()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/psiturk/db.py", line 37, in init_db
+    Base.metadata.create_all(bind=engine)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/schema.py", line 2848, in create_all
+    tables=tables)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1479, in _run_visitor
+    conn._run_visitor(visitorcallable, element, **kwargs)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1122, in _run_visitor
+    **kwargs).traverse_single(element)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 122, in traverse_single
+    return meth(obj, **kw)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/ddl.py", line 70, in visit_metadata
+    self.traverse_single(table, create_ok=True)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 122, in traverse_single
+    return meth(obj, **kw)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/ddl.py", line 89, in visit_table
+    self.connection.execute(schema.CreateTable(table))
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 662, in execute
+    params)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 720, in _execute_ddl
+    compiled
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 874, in _execute_context
+    context)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1024, in _handle_dbapi_exception
+    exc_info
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 196, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 867, in _execute_context
+    context)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 324, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (OperationalError) table turkdemo already exists u'\nCREATE TABLE turkdemo (\n\tuniqueid VARCHAR(128) NOT NULL, \n\tassignmentid VARCHAR(128) NOT NULL, \n\tworkerid VARCHAR(128) NOT NULL, \n\thitid VARCHAR(128) NOT NULL, \n\tipaddress VARCHAR(128), \n\tbrowser VARCHAR(128), \n\tplatform VARCHAR(128), \n\tlanguage VARCHAR(128), \n\tcond INTEGER, \n\tcounterbalance INTEGER, \n\tcodeversion VARCHAR(128), \n\tbeginhit DATETIME, \n\tbeginexp DATETIME, \n\tendhit DATETIME, \n\tbonus FLOAT, \n\tstatus INTEGER, \n\tmode VARCHAR(128), \n\tdatastring TEXT(4294967295), \n\tPRIMARY KEY (uniqueid)\n)\n\n' ()
+Traceback (most recent call last):
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/psiturk/experiment.py", line 89, in <module>
+    init_db()
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/psiturk/db.py", line 37, in init_db
+    Base.metadata.create_all(bind=engine)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/schema.py", line 2848, in create_all
+    tables=tables)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1479, in _run_visitor
+    conn._run_visitor(visitorcallable, element, **kwargs)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1122, in _run_visitor
+    **kwargs).traverse_single(element)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 122, in traverse_single
+    return meth(obj, **kw)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/ddl.py", line 70, in visit_metadata
+    self.traverse_single(table, create_ok=True)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/sql/visitors.py", line 122, in traverse_single
+    return meth(obj, **kw)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/ddl.py", line 89, in visit_table
+    self.connection.execute(schema.CreateTable(table))
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 662, in execute
+    params)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 720, in _execute_ddl
+    compiled
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 874, in _execute_context
+    context)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1024, in _handle_dbapi_exception
+    exc_info
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 196, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 867, in _execute_context
+    context)
+  File "/Users/zzj/Documents/AR/py27/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 324, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (OperationalError) table turkdemo already exists u'\nCREATE TABLE turkdemo (\n\tuniqueid VARCHAR(128) NOT NULL, \n\tassignmentid VARCHAR(128) NOT NULL, \n\tworkerid VARCHAR(128) NOT NULL, \n\thitid VARCHAR(128) NOT NULL, \n\tipaddress VARCHAR(128), \n\tbrowser VARCHAR(128), \n\tplatform VARCHAR(128), \n\tlanguage VARCHAR(128), \n\tcond INTEGER, \n\tcounterbalance INTEGER, \n\tcodeversion VARCHAR(128), \n\tbeginhit DATETIME, \n\tbeginexp DATETIME, \n\tendhit DATETIME, \n\tbonus FLOAT, \n\tstatus INTEGER, \n\tmode VARCHAR(128), \n\tdatastring TEXT(4294967295), \n\tPRIMARY KEY (uniqueid)\n)\n\n' ()
