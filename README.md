@@ -5,6 +5,8 @@ Design with AI
 
 * [UI](https://github.com/zhaozj89/design-with-ml/tree/webdemo)
 
+* [UI-client-server](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
+
 * [Prepare training data](https://github.com/zhaozj89/design-with-ml/tree/prepare-data)
 
 * [Multi-stage GAN model](https://github.com/zhaozj89/design-with-ml/tree/gan)
