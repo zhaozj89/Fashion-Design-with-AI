@@ -1,3 +1,18 @@
+function GetURLParameter(sParam) {
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split('&');
+  for (var i = 0; i < sURLVariables.length; i++) {
+    var sParameterName = sURLVariables[i].split('=');
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1];
+    }
+  }
+  return null;
+}
+
+var DEMO = GetURLParameter('demo');
+console.log(DEMO);
+
 var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 
 var pages = [
@@ -78,9 +93,12 @@ var MyExperiment = function() {
     GLOBAL.start = new Date();
 
     $(function() {
-        GLOBAL.intro = introJs();
-        GLOBAL.intro.setOption('showProgress', true);
-        GLOBAL.intro.start();
+
+        if(DEMO!=="true"){
+            GLOBAL.intro = introJs();
+            GLOBAL.intro.setOption('showProgress', true);
+            GLOBAL.intro.start();
+        }
 
         // layers
         setTimeout(async function() {
@@ -250,11 +268,14 @@ var PostQuestionnaire = function() {
 var currentview;
 
 $(window).load(function() {
-    // currentview = new MyExperiment();
-    psiTurk.doInstructions(
-        instructionPages,
-        function() {
-            currentview = new MyExperiment();
-        }
-    );
+    if(DEMO==="true")
+        currentview = new MyExperiment();
+    else {
+        psiTurk.doInstructions(
+            instructionPages,
+            function() {
+                currentview = new MyExperiment();
+            }
+        );
+    }
 });

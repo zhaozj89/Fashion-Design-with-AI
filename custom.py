@@ -213,6 +213,13 @@ def study():
     except TemplateNotFound:
         abort(404)
 
+@custom_code.route('/demo', methods=['GET'])
+def demo():
+    try:
+        return render_template('exp.html', uniqueId='test', adServerLoc='none', mode='debug')
+    except TemplateNotFound:
+        abort(404)
+
 # @custom_code.route('/talk_to_AI_landmark', methods=['POST'])
 # def talk_to_AI_landmark():
 #     try:
