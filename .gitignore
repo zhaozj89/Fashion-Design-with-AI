@@ -9,3 +9,5 @@ __pycache__
 
 config.txt
 *.db
+
+*.log

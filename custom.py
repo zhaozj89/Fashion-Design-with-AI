@@ -202,6 +202,9 @@ import numpy as np
 import base64
 from keras.models import load_model
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 model1 = load_model('stage1-epoch-150.h5')
 model2 = load_model('stage2-epoch-150.h5')
 
