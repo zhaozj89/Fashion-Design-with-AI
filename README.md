@@ -11,7 +11,7 @@ Design with AI
 
 * [Prepare training data](https://github.com/zhaozj89/design-with-ml/tree/prepare-data)
 
-* [Multi-stage GAN model](https://github.com/zhaozj89/design-with-ml/tree/gan)
+* [Two-stage GAN model](https://github.com/zhaozj89/design-with-ml/tree/gan)
 
 * [Pix2pix for comparison](https://github.com/zhaozj89/design-with-ml/tree/gan-pix2pix)
 
