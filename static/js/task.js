@@ -111,7 +111,7 @@ var MyExperiment = function() {
             // else GLOBAL.filename='00'+idx+'.png';
             // $('#ImageCanvas').attr('src', '/static/assets/images/show/'+GLOBAL.filename);
 
-            GLOBAL.camera = MakeCamera('VideoCanvas');
+            // GLOBAL.camera = MakeCamera('VideoCanvas');
             $(window).trigger('resize');
         }, 100);
 
