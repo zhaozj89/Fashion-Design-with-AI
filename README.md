@@ -1,9 +1,12 @@
-Design with AI
+A Compensation Method of Two-stage Image Generation For Human-AI Collaborated In-situ Fashion Design in Augmented Reality Environment
 ========
 
 ## Branches ##
 
-* [UI](https://github.com/zhaozj89/design-with-ml/tree/webdemo)
+
+[Online experiment: phase 2](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
+
+<!-- * [UI](https://github.com/zhaozj89/design-with-ml/tree/webdemo)
 
 * [UI-client-server](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
 
@@ -15,7 +18,7 @@ Design with AI
 
 * [Pix2pix for comparison](https://github.com/zhaozj89/design-with-ml/tree/gan-pix2pix)
 
-* [Original version](https://github.com/zhaozj89/design-with-ml/tree/uist2017_submission)
+* [Original version](https://github.com/zhaozj89/design-with-ml/tree/uist2017_submission) -->
 
 ------------------
 GNU LESSER GENERAL PUBLIC LICENSE
