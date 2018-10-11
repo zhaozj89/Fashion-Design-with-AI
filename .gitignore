@@ -11,3 +11,7 @@ config.txt
 *.db
 
 *.log
+
+py35
+
+.vscode
