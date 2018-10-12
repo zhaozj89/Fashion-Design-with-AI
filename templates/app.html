@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Psychology Experiment</title>
+    <title>Demo</title>
     <link rel="Favicon" href="/static/favicon.ico" />
 
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
@@ -17,16 +17,8 @@
     <script src="/static/lib/jquery-migrate.min.js"></script>
     <script src="/static/lib/popper.min.js"></script>
     <script src="/static/lib/plain-draggable.min.js"></script>
-    <script src="/static/lib/underscore-min.js"></script>
-    <script src="/static/lib/backbone-min.js"></script>
     <script src="/static/lib/d3.v3.min.js"></script>
     <script src="/static/lib/intro.min.js"></script>
-
-    <!-- <script>
-        var uniqueId = "{{ uniqueId }}";
-        var adServerLoc = "{{ adServerLoc }}";
-        var mode = "{{ mode }}";
-    </script> -->
 </head>
 
 <body>
@@ -61,40 +53,41 @@
                 <img class="image_button" src="/static/assets/help.svg"/>
             </div>
         </li>
-        <!-- <li data-step='8' data-intro='When you finish, click here to leave (please ensure you can see a generated image).'>
-            <div class="div_button" id="exit">
-                <p class="text_button">exit</p>
-            </div>
-        </li> -->
     </ul>
         
     <canvas id="DrawCanvas"></canvas>
-    <!-- <video id="VideoCanvas" autoplay muted="muted"></video> -->
+    <video id="VideoCanvas" autoplay muted="muted"></video>
     <div id="SVGCanvas"></div>
     <img id="ImageCanvas"/>
     <div id="ResultCanvas"></div>
     
     <ul id="Explanation" style="font-size: x-large">
-        <li style="color: #99d8c9">collor</li>
-        <li style="color: #fdae6b">sleeve</li>
-        <li style="color: #f03b20">hem</li>
+        <li style="color: #99d8c9; margin:10px">collor</li>
+        <li style="color: #fdae6b; margin:10px">sleeve</li>
+        <li style="color: #f03b20; margin:10px">hem</li>
     </ul>
+
+    <div id="Tools">
+        <div id="Mode" class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:10px">
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="Image" autocomplete="off" checked>Image
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="Camera" autocomplete="off">Camera
+            </label>
+        </div>
+        <div id="Opacity" style="margin:10px">
+            <input type="range" min="0" max="100" value="60" class="slider">
+            <span>0.6</span>
+        </div>
+    </div>
     
     <div id="Status" data-step='7' data-intro='Here showing status of the system.'>Status</div>
- 
-    <noscript>
-			<h1>Warning: Javascript seems to be disabled</h1>
-			<p>This website requires that Javascript be enabled on your browser.</p>
-			<p>Instructions for enabling Javascript in your browser can be found
-			<a href="http://support.google.com/bin/answer.py?hl=en&answer=23852">here</a></p>
-	</noscript>
 </body>
 <script src="/static/js/config.js"></script>
 <script src="/static/js/svg.js"></script>
 <script src="/static/js/canvas.js"></script>
 <script src="/static/js/camera.js"></script>
-<!-- <script src="/static/js/main.js"></script> -->
 <script src="/static/js/utils.js"></script>
-<!-- <script src="/static/js/psiturk.js"></script> -->
 <script src="/static/js/task.js"></script>
 </html>

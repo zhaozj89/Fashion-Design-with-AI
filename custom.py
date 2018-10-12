@@ -7,8 +7,6 @@ import numpy as np
 import base64
 import tensorflow as tf
 from keras.models import load_model
-# import os
-# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 custom_code = Flask(__name__, static_folder='static')
 
@@ -29,60 +27,51 @@ def demo():
 
 @custom_code.route('/talk_to_AI_draw', methods=['POST'])
 def talk_to_AI_draw():
-    try:
-        res_data = {}
+    # try:
+    res_data = {}
 
-        # input data
-        input_data = request.json
-        filename = input_data['filename']
-        landmark = input_data['landmark']
-        image_uri = input_data['sketch']
+    # input data
+    input_data = request.json
+    landmark = input_data['landmark']
+    image_uri = input_data['sketch']
 
-        encoded_image = image_uri.split(",")[1]
-        decoded_image = base64.b64decode(encoded_image)
+    encoded_image = image_uri.split(",")[1]
+    decoded_image = base64.b64decode(encoded_image)
 
-        arr = np.asarray(bytearray(decoded_image), dtype=np.uint8)
-        img = cv2.imdecode(arr, -1) # Load it as it is
+    arr = np.asarray(bytearray(decoded_image), dtype=np.uint8)
+    img = cv2.imdecode(arr, -1) # Load it as it is
 
-        # process opencv image here
-        landmark_image = MakeLandmarkImage(landmark)
-        sketch_image = MakeSketchImage(img)
+    # process opencv image here
+    landmark_image = MakeLandmarkImage(landmark)
+    sketch_image = MakeSketchImage(img)
 
-        landmark_image = cv2.cvtColor(landmark_image, cv2.COLOR_GRAY2BGR)
-        sketch_image = cv2.cvtColor(sketch_image, cv2.COLOR_GRAY2BGR)
+    landmark_image = cv2.cvtColor(landmark_image, cv2.COLOR_GRAY2BGR)
+    sketch_image = cv2.cvtColor(sketch_image, cv2.COLOR_GRAY2BGR)
 
-        # cv2.imwrite('landmark.png', landmark_image)
-        # cv2.imwrite('sketch_image.png', sketch_image)
+    landmark_image = np.array(landmark_image)/127.5-1
+    sketch_image = np.array(sketch_image)/127.5-1
 
-        landmark_image = np.array(landmark_image)/127.5-1
-        sketch_image = np.array(sketch_image)/127.5-1
+    landmark_image = landmark_image[np.newaxis,...]
+    sketch_image = sketch_image[np.newaxis,...]
 
-        landmark_image = landmark_image[np.newaxis,...]
-        sketch_image = sketch_image[np.newaxis,...]
+    with graph.as_default():
+        fake_sketch = model1.predict(landmark_image)
 
-        with graph.as_default():
-            fake_sketch = model1.predict(landmark_image)
+    sketch = np.concatenate([fake_sketch, sketch_image], axis=3)
+    with graph.as_default():
+        result = model2.predict(sketch)
 
-        # print('predict 1 succeed ...')
+    result = np.squeeze((result * 127.5 + 127.5).astype(np.uint8))
 
-        sketch = np.concatenate([fake_sketch, sketch_image], axis=3)
-        with graph.as_default():
-            result = model2.predict(sketch)
+    # to data_uri
+    cnt = cv2.imencode('.png', result)[1]
+    b64 = base64.b64encode(cnt).decode('utf-8') # python3, for python2, use encodestring
 
-        # print('predict 2 succeed ...')
+    res_data['image'] = 'data:image/png;base64,' + b64
 
-        result = np.squeeze((result * 127.5 + 127.5).astype(np.uint8))
-        # cv2.imwrite('result.png', result)
-
-        # to data_uri
-        cnt = cv2.imencode('.png', result)[1]
-        b64 = base64.b64encode(cnt).decode('utf-8') # python3, for python2, use encodestring
-
-        res_data['image'] = 'data:image/png;base64,' + b64
-
-        return jsonify(res_data)
-    except:
-        abort(404)
+    return jsonify(res_data)
+    # except:
+    #     abort(404)
 
 def MakeLandmarkImage(landmarks):
     res = np.zeros((256, 256), np.uint8)

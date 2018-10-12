@@ -82,6 +82,13 @@ body {
     left: 520px;
 }
 
+#Tools {
+    top: 50px;
+    margin: 20px;
+    position: absolute;
+    left: 680px;
+}
+
 #Status {
     font-size: large;
     top: 580px;
