@@ -1,10 +1,10 @@
 ## A Compensation Method of Two-stage Image Generation For Human-AI Collaborated In-situ Fashion Design in Augmented Reality Environment ##
 
-[Homepage]()
+[Homepage](https://zhaozj89.github.io/Fashion-Design-with-AI/)
 
 ## Branches ##
 
-[Complete demo]()
+[Complete demo](https://github.com/zhaozj89/Fashion-Design-with-AI/tree/local)
 
 [Prepare for training data]()
 
@@ -12,9 +12,11 @@
 
 [Pix2pix training for comparison]()
 
-[Online experiment: phase 1]()
+[Online experiment: phase I]()
 
-[Online experiment: phase 2](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
+[Online experiment: phase II](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
+
+[Online experiment: phase III]()
 
 [Use case study]()
 
