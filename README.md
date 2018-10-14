@@ -22,6 +22,10 @@
 
 [Original version]()
 
+## Acknowledgement ##
+
+https://github.com/ftokarev/tf-adain
+
 <!-- * [UI](https://github.com/zhaozj89/design-with-ml/tree/webdemo)
 
 * [UI-client-server](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
