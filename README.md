@@ -16,9 +16,7 @@
 
 [Online experiment: phase II](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
 
-[Online experiment: phase III]()
-
-[Use case study]()
+[Online experiment: phase III](https://github.com/zhaozj89/design-with-ml/tree/phase3)
 
 [Original version](https://github.com/zhaozj89/design-with-ml/tree/uist2017_submission)
 
