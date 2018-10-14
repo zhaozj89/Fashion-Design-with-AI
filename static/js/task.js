@@ -15,7 +15,7 @@ function ImageURI2DOM(uri) {
   }
 
   image.src = uri;
-  $(image).css('opacity', 1.0);
+  $(image).css('opacity', 0.6);
   return image;
 }
 
@@ -66,7 +66,7 @@ var APP = function() {
             $('.div_button').each(function() {
                 $(this).css('background-color', '#889288');
             });
-            $(this).css('background-color', '#FF0000');
+            $(this).css('background-color', '#007bff');
 
             // deal with events
             switch (this.id) {
@@ -115,12 +115,111 @@ var APP = function() {
     });
 };
 
+function loadImage(file) {
+    var filename = file.name;
+    var extension = filename.split( '.' ).pop().toLowerCase();
+
+    switch ( extension ) {
+        case 'png':
+        case 'jpg':
+            let image_name = './static/show/' + filename;
+            $('#ImageCanvas').attr('src', image_name);
+            break;
+        default:
+            alert('Only png and jpg are supported!');
+    }
+}
+
 $(window).load(function() {
     APP();
+
+    let form = document.createElement( 'form' );
+	form.style.display = 'none';
+	document.body.appendChild( form );
+
+	let fileInput = document.createElement( 'input' );
+	fileInput.type = 'file';
+	fileInput.addEventListener( 'change', function ( event ) {
+		loadImage( fileInput.files[ 0 ] );
+		form.reset();
+	} );
+	form.appendChild( fileInput );
+
+    $('#Image').click(function(){
+        $('#ImageCanvas').css('display', 'block');
+        $('#VideoCanvas').css('display', 'none');
+        $('.ButtonMode').each(function(){
+            $(this).css('background-color', '#6C757D');
+        });
+        $(this).css('background-color', '#007bff');
+        fileInput.click();
+    });
+
+    $('#Camera').click(function(){
+        $('#ImageCanvas').css('display', 'none');
+        $('#VideoCanvas').css('display', 'block');
+        $('.ButtonMode').each(function(){
+            $(this).css('background-color', '#6C757D');
+        });
+        $(this).css('background-color', '#007bff');
+    });
+
     $('#Opacity').on('change', function(){
         let strval = $('#Opacity').find('input')[0].value;
         let floatval = parseFloat(strval)/100.0;
         $('#Opacity').find('span').text(floatval);
-        $('#ResultCanvas').css('opacity', floatval);
+        $('#ResultCanvas').children().css('opacity', floatval);
+    });
+
+    $('#StylizationOpacity').on('change', function(){
+        let strval = $('#StylizationOpacity').find('input')[0].value;
+        let floatval = parseFloat(strval)/100.0;
+        $('#StylizationOpacity').find('span').text(floatval);
+        $('#StylizedCanvas').children().css('opacity', floatval);
+    });
+
+    $('.Stylization').on('click', function(){
+        $('.Stylization').each(function(){$(this).css('box-shadow', 'None');});
+        $(this).css('box-shadow', '0px 0px 20px #007bff');
+
+        if($("#ResultCanvas").children()[0]===undefined) {
+            $('#Status').text('Stylization error. No content image.');
+            return;
+        }
+
+        let content_uri = $("#ResultCanvas").children()[0].src;
+        let style_name = $(this).attr('src');
+        let split_name = style_name.split('/');
+        style_name = split_name[split_name.length-1];
+
+        if(content_uri===null) {
+            $('#Status').text('Stylization error. No content image.');
+            return;
+        }
+        else {
+            $('#Status').text('Start stylization ...');
+            let recorded_data = {
+                content_data: content_uri,
+                style_filename: style_name
+            };
+            $.ajax({
+              url: "/stylize",
+              type: "POST",
+              data: JSON.stringify(recorded_data),
+              contentType: "application/json",
+              success: function(res_data){
+                  $('#StylizedCanvas').children().remove();
+                  image_uri = res_data['image'];
+                  if(image_uri!=='') {
+                      $("#StylizedCanvas").append(ImageURI2DOM(image_uri));
+                      $('#Status').text('Stylization finished');
+                  }
+                  else {
+                      $('#Status').text('Stylization error');
+                  }
+              },
+              error: function(){$('#Status').text('Stylization Network error');}
+            });
+        }
     });
 });

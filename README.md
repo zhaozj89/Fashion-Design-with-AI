@@ -1,5 +1,7 @@
 ## A Complete Demo ##
 
+![cover](cover.png)
+
 ## How to use ##
 
 * activate a Python3.5 environment

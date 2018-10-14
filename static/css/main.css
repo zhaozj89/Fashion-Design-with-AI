@@ -45,6 +45,19 @@ body {
     margin: 20px;
 }
 
+#StylizedCanvas {
+    /* position: fixed; */
+    background:rgb(100,100,100,0.3);
+    z-index: 19;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    /* margin: -250px 0 0 -250px; */
+    top: 50px;
+    left: 0px;
+    margin: 20px;
+}
+
 /* svg */
 
 #SVGCanvas {
@@ -83,10 +96,15 @@ body {
 }
 
 #Tools {
-    top: 50px;
+    top: 0px;
     margin: 20px;
     position: absolute;
     left: 680px;
+}
+
+.Stylization {
+    width: 100px;
+    height: 20px;
 }
 
 #Status {

@@ -60,6 +60,7 @@
     <div id="SVGCanvas"></div>
     <img id="ImageCanvas"/>
     <div id="ResultCanvas"></div>
+    <div id="StylizedCanvas"></div>
     
     <ul id="Explanation" style="font-size: x-large">
         <li style="color: #99d8c9; margin:10px">collor</li>
@@ -68,17 +69,106 @@
     </ul>
 
     <div id="Tools">
-        <div id="Mode" class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:10px">
-            <label class="btn btn-secondary active">
-                <input type="radio" name="options" id="Image" autocomplete="off" checked>Image
-            </label>
-            <label class="btn btn-secondary">
-                <input type="radio" name="options" id="Camera" autocomplete="off">Camera
-            </label>
+        <div id="Mode"style="margin:10px">
+            <button class="ButtonMode" type="button" class="btn btn-secondary btn-sm" style="background-color: #6C757D" id="Image">Image</button>
+            <button class="ButtonMode" type="button" class="btn btn-secondary btn-sm" style="background-color: #6C757D" id="Camera">Camera</button>
         </div>
         <div id="Opacity" style="margin:10px">
+            <div>Generation Opacity</div>
             <input type="range" min="0" max="100" value="60" class="slider">
             <span>0.6</span>
+        </div>
+        <div id="StylizationOpacity" style="margin:10px">
+            <div>Stylization Opacity</div>
+            <input type="range" min="0" max="100" value="60" class="slider">
+            <span>0.6</span>
+        </div>
+        <div id="Stylization" style="margin:10px; overflow-y: scroll; height: 500px">
+            <div>Stylization Templates</div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-60s_Wallpaper.png" />
+                <span style="font-size:10px">60s Wallpaper</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-80s_Prom_Dress.png" />
+                <span style="font-size:10px">80s Prom Dress</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Badge_of_Hipness.png" />
+                <span style="font-size:10px">Badge of Hipness</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Birthday_Flowers.png" />
+                <span style="font-size:10px">Birthday Flowers</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-dream_sheets.png" />
+                <span style="font-size:10px">dream sheets</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Floral_Orange.png" />
+                <span style="font-size:10px">Floral Orange</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Hello_Hello_Good_Buy.png" />
+                <span style="font-size:10px">Hello Hello Good Buy</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Oh!_So_Vintage!.png" />
+                <span style="font-size:10px">Oh! So Vintage!</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-OverTheCounter_Drugs.png" />
+                <span style="font-size:10px">Over the Counter Drugs</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-playground.png" />
+                <span style="font-size:10px">playground</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-sublime_porn.png" />
+                <span style="font-size:10px">sublime porn</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Summer_Flowers.png" />
+                <span style="font-size:10px">Summer Flowers</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Surfing_60s.png" />
+                <span style="font-size:10px">Surfing 60s</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Toile_de_Jouy.png" />
+                <span style="font-size:10px">Toile de Jouy</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Tri_-_Angular.png" />
+                <span style="font-size:10px">Tri-Angular</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-upgrade_it.png" />
+                <span style="font-size:10px">upgrade it</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Vintage_Outfit.png" />
+                <span style="font-size:10px">Vintage Outfit</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Wool_Pleated_Skirt.png" />
+                <span style="font-size:10px">Wool Pleated Skirt</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-WowSoVintage!.png" />
+                <span style="font-size:10px">Wow So Vintage!</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-you_think_too_much.png" />
+                <span style="font-size:10px">you think too much</span>
+            </div>
+            <div>
+                <img class="Stylization" src="/static/style/COLOURlovers.com-Youre_accepted.png" />
+                <span style="font-size:10px">Youre accepted</span>
+            </div>
         </div>
     </div>
     
