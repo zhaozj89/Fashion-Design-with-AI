@@ -6,7 +6,7 @@
 
 [Complete demo](https://github.com/zhaozj89/Fashion-Design-with-AI/tree/local)
 
-[Prepare for training data]()
+[Prepare for training data](https://github.com/zhaozj89/design-with-ml/tree/prepare-data)
 
 [Two-stage model training]()
 
@@ -26,13 +26,13 @@
 
 https://github.com/ftokarev/tf-adain
 
+https://github.com/zhusz/ICCV17-fashionGAN
+
 <!-- * [UI](https://github.com/zhaozj89/design-with-ml/tree/webdemo)
 
 * [UI-client-server](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
 
 * [Data-analysis](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
-
-* [Prepare training data](https://github.com/zhaozj89/design-with-ml/tree/prepare-data)
 
 * [Two-stage GAN model](https://github.com/zhaozj89/design-with-ml/tree/gan)
 
