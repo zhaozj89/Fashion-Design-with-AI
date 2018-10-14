@@ -8,11 +8,11 @@
 
 [Prepare for training data](https://github.com/zhaozj89/design-with-ml/tree/prepare-data)
 
-[Two-stage model training]()
+[Two-stage model training](https://github.com/zhaozj89/design-with-ml/tree/gan)
 
-[Pix2pix training for comparison]()
+[Pix2pix training for comparison](https://github.com/zhaozj89/design-with-ml/tree/gan-pix2pix)
 
-[Online experiment: phase I]()
+[Online experiment: phase I](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
 
 [Online experiment: phase II](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
 
@@ -20,25 +20,13 @@
 
 [Use case study]()
 
-[Original version]()
+[Original version](https://github.com/zhaozj89/design-with-ml/tree/uist2017_submission)
 
 ## Acknowledgement ##
 
 https://github.com/ftokarev/tf-adain
 
 https://github.com/zhusz/ICCV17-fashionGAN
-
-<!-- * [UI](https://github.com/zhaozj89/design-with-ml/tree/webdemo)
-
-* [UI-client-server](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
-
-* [Data-analysis](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
-
-* [Two-stage GAN model](https://github.com/zhaozj89/design-with-ml/tree/gan)
-
-* [Pix2pix for comparison](https://github.com/zhaozj89/design-with-ml/tree/gan-pix2pix)
-
-* [Original version](https://github.com/zhaozj89/design-with-ml/tree/uist2017_submission) -->
 
 ------------------
 GNU LESSER GENERAL PUBLIC LICENSE
