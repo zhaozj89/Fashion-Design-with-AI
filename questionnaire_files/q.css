@@ -1,0 +1,668 @@
+﻿body
+{
+    font-family:"微软雅黑","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    word-break:break-all;
+    word-wrap: break-word;
+}
+.slider{width:100%;}
+.imageSlider1 { margin:0;padding:0; height:20px; width:100%; background-image:url("/images/wjx/JoinQuestionnaire/scrollbg.gif"); }
+.imageBar1    { margin:0;padding:0; height:17px; width:10px; background-image:url("/images/wjx/JoinQuestionnaire/scrfloat.gif"); }
+
+.tableoption
+{
+     background: #CDD7CC; padding:3px;/*solid 1px*/
+}
+.tableoption td { border-bottom:1px solid #eeeeee; }
+.div_table_radio_question ul {
+clear:both;
+}
+.div_table_radio_question li
+{
+ margin-bottom:2px;
+}
+.div_table_radio_question li label,.div_table_radio_question li input,.div_table_radio_question td input
+{
+    cursor:pointer;
+}
+
+.div_item_desc{margin-left:19px; font-weight:normal; color:#999999;}
+
+.on3{background:url(/images/wjx/JoinQuestionnaire/Rate/wjxlike.png) no-repeat;width:24px;height:24px; text-decoration:none;  cursor:pointer;background-position:0 -28px;}
+.off3{background:url(/images/wjx/JoinQuestionnaire/Rate/wjxlike.png) no-repeat;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+ .on2{background:url(/images/wjx/JoinQuestionnaire/Rate/wjxstar.png) no-repeat;width:24px;height:24px; text-decoration:none;  cursor:pointer;background-position:0 -28px;}
+.off2{background:url(/images/wjx/JoinQuestionnaire/Rate/wjxstar.png) no-repeat;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+.onscore
+{
+    background:url(/images/wjx/JoinQuestionnaire/Rate/piont_lv.png);background-color:#FFFFFF;overflow:hidden;border:solid 1px #dbdbdb;width:355px; height:24px;
+}
+    .onscore li {
+        line-height:24px !important;
+    }
+.on6{background:none!important;text-align:center;border:solid 1px white; cursor:pointer;}
+.off6{background:#fff;border:solid 1px white;text-align:center;cursor:pointer;}
+
+.on4{background:url(/images/wjx/JoinQuestionnaire/Rate/wjxheart.png) no-repeat;width:24px;height:24px; text-decoration:none;  cursor:pointer;background-position:0 -27px;}
+.off4{background:url(/images/wjx/JoinQuestionnaire/Rate/wjxheart.png) no-repeat;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+.on5{background:url(/images/wjx/JoinQuestionnaire/Rate/right_24.gif) no-repeat;width:24px;height:24px; text-decoration:none;  cursor:pointer;}
+.off5{background:url(/images/wjx/JoinQuestionnaire/Rate/right_24_off.gif) no-repeat;width:24px; height:24px;text-decoration:none; cursor:pointer;}
+
+.sortnum
+{
+    width:18px;
+    height:18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right:10px;
+    background: #e2e2e2;
+    border: 2px solid #e2e2e2;
+   
+}
+.sortnum-sel
+{
+    width: 20px;
+    height: 20px;
+    border-radius:12px;
+    border: 1px solid #ff6600;
+    color: #ff6600;
+    text-align: center;
+    background: none;
+    line-height:20px;
+}
+.matrixtitle{
+     float:left;
+}
+ .survey{width:780px;line-height:20px; word-wrap: break-word; padding:0; margin:0 auto;}
+ .surveyhead
+   {
+        line-height: 20px; text-align: center;
+        width:96%;
+        padding:40px 2% 30px;
+   } 
+ .surveyhead h1
+ {  
+     font-size:24px !important; font-weight: bold; color: #f53d05; vertical-align: middle;
+       margin:0;padding:15px 0; line-height:24px;
+  }
+   .surveydescription 
+   {
+        color:#555555;
+        line-height:24px;
+       text-align:left;
+       font-size:16px;
+       padding-bottom:15px;
+        border-bottom:1px dashed #ccc;
+        margin-left:0;
+        margin-top:20px;
+   }
+   .surveycontent
+   {
+       margin:0;width:100%;
+   }
+span.req {
+    color:red;
+    font-weight:bold;
+    position:absolute;
+    top:3px;
+    left:-10px;
+}
+   .errorMessage 
+   {
+       color:Red;
+       margin-left:20px;
+       height:20px;
+   }
+.div_question
+{  
+    border:2px solid  white;
+    padding:4px; 
+    clear:both;
+    margin:2px auto 10px;
+    width:96%;
+    height:auto;
+}
+ img
+{
+    max-width:100%;
+    overflow:hidden;
+}
+.div_question_mouseover {
+    border:2px solid  #fdb553;
+     cursor: pointer;
+     padding:4px;
+}
+.div_question_mouseout {
+    cursor:pointer;
+}
+.div_question_onclick
+{
+ /*border:2px solid  #66CAFF;
+ padding:4px;*/
+}
+.div_question_error
+{
+ border:1px solid  red !important;
+ padding:4px;
+}
+.div_topic_question{
+    width:28px;
+    float:left;
+}
+.div_topic_page_question {
+    padding-top: 1px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-left: -70px;
+    width: 140px;
+    text-align: center;
+    z-index:20;
+}
+.paging-bg {
+    height: 15px;
+    line-height: 13px;
+    background: url(/images/Design/paging_bg.png) no-repeat;
+}
+.line_as_hr {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    top: 7px;
+}
+.strong {
+    font-weight: bold;
+}
+.col_red {
+    color: red;
+}
+
+.col_green {
+    color: green;
+}
+.related_settings {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.related_settings .edit-page-title {
+    color: #808080;
+}
+.div_title_question_all {
+    padding-top: 2px;
+    font-size: 15px;
+    color: #444444;
+    font-weight: bold;
+    height: auto;
+    line-height: 20px;
+    position:relative;
+}
+.div_title_question
+{  
+    overflow:hidden;zoom:1;
+}
+.div_title_page_question{
+    font-weight:bold;font-size: 14px;
+}
+.div_title_cut_question{
+  font-size:16px;
+}
+.div_table_question{
+ float:right;
+ display:block;
+ margin-bottom:4px;
+ height:25px;
+ clear:both;
+}
+.div_table_question_hide
+{
+    display:none;
+}
+
+.div_table_radio_question{
+   clear:both;
+   padding-top:5px; 
+   padding-left:24px;
+   padding-bottom:2px;
+   border-bottom:1px solid #EFEFEF;
+   font-size:15px; 
+   color:#333333;
+   _padding-left:27px;
+}
+.div_title_question select,.div_table_radio_question select {
+ height:28px; line-height:20px;padding:3px 6px;border: solid 1px #d5d5d5;
+      appearance:none;-moz-appearance:none;-webkit-appearance:none;background: url("/images/arrow.png") no-repeat scroll right center #ffffff;
+      padding-right: 14px;vertical-align: middle; 
+    padding-right:3px\0;background:#ffffff\0;max-width:680px;
+}
+.div_table_radio_question .inputtext
+{
+    line-height:22px;
+    height:22px;
+    font-size:16px;
+}
+.div_title_question .underline,.div_title_question .inputtext {
+    font-size:16px;
+}
+.div_table_clear_top
+{
+    clear:both;
+    margin-top:4px;
+}
+.div_table_clear_bottom
+{
+    clear:both;
+    margin-bottom:10px;
+}
+.div_table_radio_question li
+{
+ float:left;
+ list-style-type:none;
+}
+.ulradiocheck li{
+  line-height:30px;
+  position:relative;
+}
+.ulradiocheck li input
+{
+    position:absolute; top:6px;
+}
+.ulradiocheck li label
+{
+    display:block;
+    padding-left:20px;
+    vertical-align:middle;
+}
+tr.labelname
+{
+    background:#f9f9f9;
+}
+tr.labelname b
+{
+    color:#666;font-size:16px;
+}
+.div_ins_question
+{
+ padding-top:8px; 
+ color:#666666;
+ padding-left:24px;
+ line-height:18px;
+ font-size:14px;
+ clear:both;
+ word-break:break-all;
+}
+.option 
+{
+	font-size:12px;
+	background-color:#cdd7cc;
+	
+}
+.jqRadio {
+    background: transparent url(/images/radio.gif) no-repeat;
+    vertical-align: middle;
+    height: 16px;
+    width: 18px;
+    _font-size:10px;
+    display:inline-block;
+    position:absolute;
+    top:6px;
+}
+.jqCheckbox {
+    background: transparent url(/images/checkbox.gif) no-repeat;
+    vertical-align: middle;
+    height: 16px;
+    width: 18px;
+    _font-size:10px;
+   display:inline-block;
+    position:absolute;
+    top:6px;
+}
+.jqChecked {
+    background-position:0 -16px;
+}
+.div_title_attr_question {
+ border:1px solid #cccccc;
+ margin:5px 10px 10px;
+ padding:5px;
+ font-size:12px;   
+ background:#cfe7ff;
+}
+.div_btn_confirm_attr_question{
+   margin:5px 10px 10px;
+   padding:5px;
+   font-size:12px; 
+   float:right;
+}
+.div_type_attr_question{
+   border:1px solid #6290d2;
+   margin:5px 10px 10px;
+   padding:5px;
+    font-size:12px; 
+}
+
+.div_jump_attr_question{
+   border:1px solid #6290d2;
+   margin:5px 10px 10px;
+   padding:5px;
+   font-size:12px; 
+}
+.div_default_attr_question {
+ border:1px solid #cccccc;
+ margin:5px 10px 10px;
+ padding:5px;
+ background:#cfe7ff;
+ font-size:12px; 
+}
+.qtypetip
+{
+    color:#0066FF;
+    font-weight:normal;
+    font-size:14px;
+}
+legend{display:none;}
+fieldset{border:0;}
+
+
+.shop-item {
+    position: relative;
+    float: left;
+    width: 224px;
+    border: 1px solid #D5D5D5;
+    margin-bottom: 8px !important;
+    margin-right: 15px;
+}
+.shop-item:last-child {
+    margin-right: 0;
+}
+.shop-item:hover { border: 1px solid #95CDF3; box-shadow: 0 2px 3px #B9DFF0; }
+.shop-item .img_place {
+width:190px;
+height: 126px;
+margin:10px auto;
+overflow: hidden;
+}
+.shop-item .img_place img {
+border:none;
+margin: 0 auto;
+}
+.shop-item .text_place {
+height: 95px;
+position: relative;
+margin:0 8px;
+}
+.haspic .item_name {
+position: absolute;
+left: 46%;
+top: 0;
+width: 50%;
+height: 6em;
+}
+.shop-item .item_name {
+display: block;
+margin-left: 8px;
+color: #333;
+font-size: 14px;
+position: absolute;
+top: 10px;
+left: 0;
+max-height: 32px;
+height: 32px;
+line-height:16px;
+overflow: hidden;
+text-overflow:ellipsis;
+}
+.shop-item .item_select {
+margin-left: 8px;
+position: absolute;
+top: 50px;
+left: 0;
+z-index: 20;
+}
+.shop-item .item_price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #EF5D4A;
+    margin-right: 5px;
+    position: absolute;
+    text-align: right;
+    top: 49px;
+    right: 0;
+}
+.item_select .operation
+{
+display: inline-block;
+height: 28px;
+border: 1px solid #ABABAB;
+width:28px;
+line-height:28px;
+text-align: center;
+background: #fff;
+vertical-align: top;
+padding: 0;
+cursor: pointer;
+float: left;
+}
+.item_select .remove {
+ border-right: 0; border-radius: 2px 0 0 2px;
+}
+.item_select .add {
+ border-left: 0;border-radius: 0 2px 2px 0;
+}
+.item_select .remove:hover, .item_select .add:hover { color: #0077B3; background: #fff; }
+.item_select .itemnum {
+    width:38px;
+outline: 0 none;
+font-size: 12px;
+cursor:default;
+margin:0;
+background:#fff;
+}
+.shopcart {
+    padding: 15px;
+    margin: 20px;
+    border: 1px solid #E0E0E0;
+    background: #FFF;
+    border-radius:4px;
+}
+.productslist {
+
+padding-bottom: 8px;
+margin-bottom: 4px;
+}
+.productitem {
+padding: 8px;
+position: relative;
+font-size: 12px;
+height:33px;
+border-bottom: 1px solid #EFEFEF;
+}
+
+.productitem .fpname {
+position: absolute;
+left: 0;
+top: 14px;
+width: 60%;
+height: 32px;
+font-weight: bold;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.productitem .fpnum {
+    position: absolute;
+    left: 60%;
+    top: 8px;
+    width: 20%;
+    height: 32px;
+    text-align: right;
+}
+.productitem .fpprice {
+    position: absolute;
+    left: 80%;
+    top: 8px;
+    width: 20%;
+    height: 32px;
+    text-align: right;
+    color: #333;
+}
+.ftotalprice {
+text-align: right;
+font-size: 14px;
+color: #EF5D4A;
+font-weight: bold;
+}
+ #loading{
+    background: url(/images/wjx/JoinQuestionnaire/bgProgressBg.gif) no-repeat 0px 0px;
+    height:120px;width: 15px;
+    float: left;
+    border: 1px #d6ebf7 solid;
+ }
+#loadcss{
+    display: block;
+    background: url(/images/wjx/JoinQuestionnaire/ProgressBarbar.gif);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    text-align: center;
+    width: 15px;
+    line-height: 15px;
+}
+/*选项说明中 点击查看详情的 竖向滚动条*/
+#divDescPop
+{
+overflow:auto;
+}
+
+.get_Local {
+    height: 100px;
+    background-color: #f7f7fa;
+    border-radius: 2px;
+    border: dashed 1px #cccccc;
+    display:block;
+    cursor:pointer;
+}
+.res_local {
+    display: none;
+    height: 47px;
+    padding: 8px 14px 0;
+    font-size: 14px;
+    line-height: 20px;
+    border-bottom: dashed 1px #cccccc;
+    overflow-y: auto;
+    background: #fff;
+}
+.get_Local .getLocalBtn {
+    display:block;
+    position: relative;
+    top:28px;
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    color: #808080;
+    cursor:pointer;
+}
+.getLocalBtn img {
+    width: 20px;
+    height: 20px;
+    margin-left: 288px;
+    margin-right: 4px;
+}
+.getLocalBtn textarea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 44px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background-color: #fff;
+    width: 100%;
+    font-size: 180px;
+    padding-left: 0 !important;
+    font-size: 16px;
+    color: #808080;
+    line-height: 44px;
+    cursor:pointer;
+    overflow: hidden;
+    _border: none;
+    _filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+.hasImagelabel{
+    position:relative;
+    width:100%;
+}
+.hasImagelabel img{
+    _width:100%
+}
+    .icon_lookBigpic {
+        width: 38px;
+        height: 38px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 200;
+        background: url(/images/wjxMobile/view@3x.png) no-repeat center;
+        background-size: 30px 30px;
+    }
+
+@media \0screen\,screen\9 {
+    .icon_lookBigpic {
+        top:8px;
+        right:10px;
+        width: 22px;
+        height: 22px;
+        background: none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/wjxMobile/view@3x.png', sizingMethod='scale')\9;
+    }
+}
+.increase-btn {
+    position: relative;
+    right: 11px;
+    width: 50%;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 4px;
+    border: 1px solid #DCDEE0;
+    text-align: center;
+    /*margin: 10px 0 10px 52px;*/
+    margin: 10px auto;
+}
+
+.increase-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("/images/newimg/setByCon/add-blue.png");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+    margin: 8px 0 8px 8px;
+}
+
+.increase-btn > span {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 10px;
+}
+.delete-icon {
+    cursor: pointer;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("/images/newimg/setByCon/delete-red.png");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+}
+.disable-style {
+    color: #A9A9A9;
+}
+.disable-style .increase-icon  {
+    background-image: url("/images/newimg/setByCon/dis-add.png");
+}
+
+

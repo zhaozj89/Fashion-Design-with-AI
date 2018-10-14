@@ -1,32 +1,5 @@
-## A Compensation Method of Two-stage Image Generation For Human-AI Collaborated In-situ Fashion Design in Augmented Reality Environment ##
+[Questionnaire](questionnaire.html) (in Chinese)
 
-[Homepage](https://zhaozj89.github.io/Fashion-Design-with-AI/)
+[Result](result.docx) (in Chinese)
 
-## Branches ##
-
-[Complete demo](https://github.com/zhaozj89/Fashion-Design-with-AI/tree/local)
-
-[Prepare for training data](https://github.com/zhaozj89/design-with-ml/tree/prepare-data)
-
-[Two-stage model training](https://github.com/zhaozj89/design-with-ml/tree/gan)
-
-[Pix2pix training for comparison](https://github.com/zhaozj89/design-with-ml/tree/gan-pix2pix)
-
-[Online experiment: phase I](https://github.com/zhaozj89/design-with-ml/tree/web-demo-client-server)
-
-[Online experiment: phase II](https://github.com/zhaozj89/design-with-ml/tree/data-analysis)
-
-[Online experiment: phase III]()
-
-[Use case study]()
-
-[Original version](https://github.com/zhaozj89/design-with-ml/tree/uist2017_submission)
-
-## Acknowledgement ##
-
-https://github.com/ftokarev/tf-adain
-
-https://github.com/zhusz/ICCV17-fashionGAN
-
-------------------
-GNU LESSER GENERAL PUBLIC LICENSE
+[Reported perceptual feeling](16.xlsx) (in Chinese)
