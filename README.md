@@ -29,4 +29,4 @@ https://github.com/zhusz/ICCV17-fashionGAN
 https://github.com/eriklindernoren/Keras-GAN
 
 ------------------
-GNU LESSER GENERAL PUBLIC LICENSE
+GNU GENERAL PUBLIC LICENSE
