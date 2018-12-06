@@ -50,7 +50,7 @@ var APP = function() {
             // $('#ImageCanvas').attr('src', '/static/assets/images/show/'+GLOBAL.filename);
             // $('#ImageCanvas').attr('src', '/static/assets/images/2.jpg');
 
-            GLOBAL.camera = MakeCamera('VideoCanvas');
+            // GLOBAL.camera = MakeCamera('VideoCanvas');
             $(window).trigger('resize');
         }, 100);
 

@@ -19,6 +19,22 @@
     <script src="/static/lib/plain-draggable.min.js"></script>
     <script src="/static/lib/d3.v3.min.js"></script>
     <script src="/static/lib/intro.min.js"></script>
+
+    <style>
+        div.select {
+            display: inline-block;
+            margin: 0 0 1em 0;
+        }
+
+        p.small {
+            font-size: 0.7em;
+        }
+
+        label {
+            width: 12em;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
@@ -72,6 +88,9 @@
         <div id="Mode"style="margin:10px">
             <button class="ButtonMode" type="button" class="btn btn-secondary btn-sm" style="background-color: #6C757D" id="Image">Image</button>
             <button class="ButtonMode" type="button" class="btn btn-secondary btn-sm" style="background-color: #6C757D" id="Camera">Camera</button>
+            <div class="select">
+                <label for="videoSource">Video source: </label><select id="videoSource"></select>
+            </div>
         </div>
         <div id="Opacity" style="margin:10px">
             <div>Generation Opacity</div>
@@ -174,6 +193,7 @@
     
     <div id="Status" data-step='7' data-intro='Here showing status of the system.'>Status</div>
 </body>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="/static/js/config.js"></script>
 <script src="/static/js/svg.js"></script>
 <script src="/static/js/canvas.js"></script>
